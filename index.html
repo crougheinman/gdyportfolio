@@ -122,7 +122,7 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>32</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="myAge">00</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span><a href="mailto:gregorypeteryanoc.gpy@gmail.com">gregorypeteryanoc.gpy@gmail.com</a></span></li>
                 </ul>
@@ -649,6 +649,33 @@
         submit.removeAttribute('disabled');
       })
   })
+
+  // get age
+  var dob = new Date(2023, 5, 20);
+  var today = new Date();
+  var diff_ms = Date.now() - dob.getTime();
+  var age_dt = new Date(diff_ms); 
+  var age = Math.abs(age_dt.getUTCFullYear() - 1970);
+
+  if (today.toDateString() === dob.toDateString()) {
+    swal({
+      title: "Today is my birthday",
+      content:{
+        element: "img",
+        attributes: {
+          src: "https://png.pngtree.com/png-vector/20191024/ourmid/pngtree-party-hat-icon-isometric-3d-style-png-image_1850580.jpg",
+          width: "200"
+        }
+      },
+      text : "I am turning "+ age +" years old today",
+      button: "Greet!"
+    }).then(() => {
+      swal("Thank you!");
+    });
+  }
+
+  document.getElementById('myAge').innerHTML = age;
+
 </script>
 
 </html>
