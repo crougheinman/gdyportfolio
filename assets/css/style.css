@@ -33,6 +33,21 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -251,7 +266,7 @@ h6 {
 
 #hero:before {
   content: "";
-  background: rgba(5, 13, 24, 0.3);
+  /* background: rgba(5, 13, 24, 0.3); */
   position: absolute;
   bottom: 0;
   top: 0;
@@ -288,13 +303,29 @@ h6 {
   border-bottom: 3px solid #008184;
 }
 
+#pogi-image{
+  display: none;
+}
+
 @media (min-width: 1024px) {
+  
   #hero {
     background-attachment: fixed;
   }
 }
 
 @media (max-width: 768px) {
+  #hero{
+    background: #000;
+  }
+
+  #pogi-image{
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
   #hero h1 {
     font-size: 28px;
     line-height: 36px;
@@ -304,6 +335,12 @@ h6 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
+ 
+  @keyframes floating {
+      0% { transform: translate(0,  0px); }
+      50%  { transform: translate(0, 15px); }
+      100%   { transform: translate(0, -0px); }   
   }
 }
 
@@ -1062,6 +1099,7 @@ section {
 }
 
 @media (max-width: 768px) {
+
   .breadcrumbs .d-flex {
     display: block !important;
   }

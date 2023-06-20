@@ -251,13 +251,17 @@ h6 {
 
 #hero:before {
   content: "";
-  background: rgba(5, 13, 24, 0.3);
+  /* background: rgba(5, 13, 24, 0.3); */
   position: absolute;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
+}
+
+#hero img {
+  display: none!important;
 }
 
 #hero .hero-container {
@@ -287,6 +291,7 @@ h6 {
   letter-spacing: 1px;
   border-bottom: 3px solid #008184;
 }
+
 
 @media (min-width: 1024px) {
   #hero {
