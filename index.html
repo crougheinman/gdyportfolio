@@ -651,7 +651,7 @@
   })
 
   // get age
-  var dob = new Date(2023, 5, 20);
+  var dob = new Date(2023, 6, 8);
   var today = new Date();
   var diff_ms = Date.now() - dob.getTime();
   var age_dt = new Date(diff_ms); 
@@ -659,7 +659,7 @@
 
   if (today.toDateString() === dob.toDateString()) {
     swal({
-      title: "Today is my birthday",
+      title: "I am turning "+ age +" years old today",
       content:{
         element: "img",
         attributes: {
@@ -667,7 +667,6 @@
           width: "200"
         }
       },
-      text : "I am turning "+ age +" years old today",
       button: "Greet!"
     }).then(() => {
       swal("Thank you!");
