@@ -573,6 +573,7 @@
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form name="submit-to-google-sheet" class="php-email-form">
+              <input type="hidden" class="form-control" name="referrer" id="referrer">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -674,6 +675,7 @@
   }
 
   document.getElementById('myAge').innerHTML = age;
+  document.getElementById('referrer').value = document.referrer;
 
 </script>
 
