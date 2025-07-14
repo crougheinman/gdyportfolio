@@ -277,8 +277,25 @@ h6 {
 
 #hero .hero-container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   min-width: 300px;
+}
+
+/* Particles.js container - Mobile only */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #particles-js {
+    display: block;
+  }
 }
 
 #hero h1 {
@@ -330,6 +347,8 @@ h6 {
     perspective: 1000px;
     filter: drop-shadow(0 20px 40px rgba(0, 129, 132, 0.3));
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
   }
 
   #pogi-image:hover {
