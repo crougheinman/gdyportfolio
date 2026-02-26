@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -86,9 +86,9 @@
       <div class="d-flex flex-column">
         <div class="profile">
           <img
-            src="assets/img/profile-img.jpg"
+            src="assets/img/profile-img.png"
             alt=""
-            class="img-fluid rounded-circle"
+            class="img-fluid rounded-circle profile-image"
           />
           <h1 class="text-light">
             <a href="index.html">Gregory Peter Yanoc</a>
@@ -610,25 +610,29 @@
       <!-- End Portfolio Section -->
 
       <!-- ======= Services Section ======= -->
-      <section id="services" class="services hide">
+      <section id="services" class="services">
         <div class="container">
           <div class="section-title">
             <h2>Services</h2>
             <p>
-              Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-              ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-              quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-              Quia fugiat sit in iste officiis commodi quidem hic quas.
+              As a versatile full-stack web developer with expertise in modern
+              technologies, I deliver end-to-end solutions that transform ideas
+              into robust, scalable applications. From responsive Angular and
+              Vue.js frontends to secure PHP/CodeIgniter backends, I ensure
+              every project meets the highest standards of performance,
+              security, and user experience. Let's build something amazing
+              together.
             </p>
           </div>
 
           <div class="row">
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bi bi-briefcase"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <div class="icon"><i class="bi bi-code-slash"></i></div>
+              <h4 class="title">Full-Stack Web Development</h4>
               <p class="description">
-                Voluptatum deleniti atque corrupti quos dolores et quas
-                molestias excepturi sint occaecati cupiditate non provident
+                Complete web application development from frontend to backend,
+                utilizing modern frameworks like Angular, Vue.js, and
+                server-side technologies including PHP and Node.js.
               </p>
             </div>
             <div
@@ -636,11 +640,12 @@
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
+              <div class="icon"><i class="bi bi-window"></i></div>
+              <h4 class="title">Frontend Development</h4>
               <p class="description">
-                Minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat tarad limino ata
+                Creating responsive and interactive user interfaces using
+                Angular, Vue.js, HTML5, CSS3, and modern JavaScript frameworks
+                for optimal user experience.
               </p>
             </div>
             <div
@@ -648,11 +653,12 @@
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div class="icon"><i class="bi bi-bar-chart"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <div class="icon"><i class="bi bi-server"></i></div>
+              <h4 class="title">Backend Development</h4>
               <p class="description">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur
+                Robust server-side development with PHP, CodeIgniter framework,
+                Node.js, and RESTful API design for scalable and secure web
+                applications.
               </p>
             </div>
             <div
@@ -660,11 +666,12 @@
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              <div class="icon"><i class="bi bi-binoculars"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <div class="icon"><i class="bi bi-database"></i></div>
+              <h4 class="title">Database Design & Management</h4>
               <p class="description">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim id est laborum
+                MySQL database architecture, optimization, and management with
+                expertise in data modeling, query optimization, and database
+                security best practices.
               </p>
             </div>
             <div
@@ -672,11 +679,11 @@
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              <div class="icon"><i class="bi bi-brightness-high"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <div class="icon"><i class="bi bi-cloud"></i></div>
+              <h4 class="title">Firebase Integration</h4>
               <p class="description">
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis praesentium voluptatum deleniti atque
+                Authentication, real-time database, cloud functions, and hosting
+                integration using Firebase platform for modern web applications.
               </p>
             </div>
             <div
@@ -684,11 +691,12 @@
               data-aos="fade-up"
               data-aos-delay="500"
             >
-              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+              <div class="icon"><i class="bi bi-envelope"></i></div>
+              <h4 class="title">Email Marketing & Automation</h4>
               <p class="description">
-                Et harum quidem rerum facilis est et expedita distinctio. Nam
-                libero tempore, cum soluta nobis est eligendi
+                Email campaign development, marketing automation, and Oracle
+                Eloqua integration for effective customer communication and
+                marketing strategies.
               </p>
             </div>
           </div>
@@ -1005,116 +1013,128 @@
 
     document.getElementById("myAge").innerHTML = age;
     document.getElementById("referrer").value = document.referrer;
-    
+
+    // Profile image hover effect
+    const profileImage = document.querySelector(".profile-image");
+    if (profileImage) {
+      profileImage.addEventListener("mouseenter", function () {
+        this.src = "assets/img/profile-img-look.png";
+      });
+
+      profileImage.addEventListener("mouseleave", function () {
+        this.src = "assets/img/profile-img.png";
+      });
+    }
+
     // Initialize particles.js for mobile only
     if (window.innerWidth <= 768) {
       particlesJS("particles-js", {
-        "particles": {
-          "number": {
-            "value": 80,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": "#008184"
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800,
             },
-            "polygon": {
-              "nb_sides": 5
-            }
           },
-          "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-              "enable": false,
-              "speed": 1,
-              "opacity_min": 0.1,
-              "sync": false
-            }
+          color: {
+            value: "#008184",
           },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-              "enable": false,
-              "speed": 40,
-              "size_min": 0.1,
-              "sync": false
-            }
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+            polygon: {
+              nb_sides: 5,
+            },
           },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#008184",
-            "opacity": 0.4,
-            "width": 1
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
           },
-          "move": {
-            "enable": true,
-            "speed": 6,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": false,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#008184",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
         },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "repulse"
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
             },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
+            onclick: {
+              enable: true,
+              mode: "push",
             },
-            "resize": true
+            resize: true,
           },
-          "modes": {
-            "grab": {
-              "distance": 400,
-              "line_linked": {
-                "opacity": 1
-              }
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
             },
-            "bubble": {
-              "distance": 400,
-              "size": 40,
-              "duration": 2,
-              "opacity": 8,
-              "speed": 3
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
             },
-            "repulse": {
-              "distance": 200,
-              "duration": 0.4
+            repulse: {
+              distance: 200,
+              duration: 0.4,
             },
-            "push": {
-              "particles_nb": 4
+            push: {
+              particles_nb: 4,
             },
-            "remove": {
-              "particles_nb": 2
-            }
-          }
+            remove: {
+              particles_nb: 2,
+            },
+          },
         },
-        "retina_detect": true
+        retina_detect: true,
       });
     }
-    
+
     const skills = [
       {
         category: "Frontend Frameworks",

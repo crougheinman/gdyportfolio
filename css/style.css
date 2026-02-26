@@ -33,26 +33,32 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
-.floating { 
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    margin-left: 30px;
-    margin-top: 5px;
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
 }
- 
+
 @keyframes floating {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 15px); }
-    100%   { transform: translate(0, -0px); }   
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.hide{
-  display: none!important;
+.hide {
+  display: none !important;
 }
 
 .back-to-top {
@@ -102,10 +108,17 @@ h6 {
   overflow-y: auto;
 }
 
+.profile-image {
+  transition: opacity 0.5s ease-in-out;
+  width: 150px;
+  object-fit: cover;
+}
+
 #header .profile img {
   margin: 15px auto;
   display: block;
   width: 120px;
+  height: 120px;
   border: 8px solid #2c2f3f;
 }
 
@@ -186,7 +199,7 @@ h6 {
   list-style: none;
 }
 
-.nav-menu>ul>li {
+.nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
 }
@@ -212,7 +225,7 @@ h6 {
 .nav-menu a:hover,
 .nav-menu .active,
 .nav-menu .active:focus,
-.nav-menu li:hover>a {
+.nav-menu li:hover > a {
   text-decoration: none;
   color: #fff;
 }
@@ -220,7 +233,7 @@ h6 {
 .nav-menu a:hover i,
 .nav-menu .active i,
 .nav-menu .active:focus i,
-.nav-menu li:hover>a i {
+.nav-menu li:hover > a i {
   color: #008184;
 }
 
@@ -303,23 +316,22 @@ h6 {
   border-bottom: 3px solid #008184;
 }
 
-#pogi-image{
+#pogi-image {
   display: none;
 }
 
 @media (min-width: 1024px) {
-  
   #hero {
     background-attachment: fixed;
   }
 }
 
 @media (max-width: 768px) {
-  #hero{
+  #hero {
     background: #000;
   }
 
-  #pogi-image{
+  #pogi-image {
     display: block;
     max-width: 300px;
     width: 100%;
@@ -336,11 +348,17 @@ h6 {
     line-height: 24px;
     margin-bottom: 30px;
   }
- 
+
   @keyframes floating {
-      0% { transform: translate(0,  0px); }
-      50%  { transform: translate(0, 15px); }
-      100%   { transform: translate(0, -0px); }   
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
   }
 }
 
@@ -652,7 +670,7 @@ section {
   background: rgba(20, 157, 221, 0.95);
 }
 
-.portfolio .portfolio-wrap .portfolio-links a+a {
+.portfolio .portfolio-wrap .portfolio-links a + a {
   border-left: 1px solid #01a5a8;
 }
 
@@ -685,7 +703,10 @@ section {
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
@@ -693,7 +714,10 @@ section {
   border: 1px solid #008184;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: #008184;
 }
 
@@ -716,7 +740,7 @@ section {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
 }
 
@@ -987,7 +1011,7 @@ section {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
   margin-top: 25px;
 }
 
@@ -1042,7 +1066,7 @@ section {
   padding: 10px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: #008184;
   border: 0;
   padding: 10px 24px;
@@ -1051,7 +1075,7 @@ section {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: #01a5a8;
 }
 
@@ -1087,11 +1111,11 @@ section {
   font-size: 15px;
 }
 
-.breadcrumbs ol li+li {
+.breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.breadcrumbs ol li+li::before {
+.breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
   color: #0e2442;
@@ -1099,7 +1123,6 @@ section {
 }
 
 @media (max-width: 768px) {
-
   .breadcrumbs .d-flex {
     display: block !important;
   }
