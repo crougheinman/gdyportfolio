@@ -1,0 +1,103 @@
+<header id="header">
+  <div class="d-flex flex-column">
+    <div class="profile">
+      <img
+        src="assets/img/profile-img.png"
+        alt=""
+        class="img-fluid rounded-circle profile-image"
+      />
+      <h1 class="text-light">
+        <a href="index.html">Gregory Peter Yanoc</a>
+      </h1>
+      <div class="social-links mt-3 text-center">
+        <a
+          href="https://www.linkedin.com/in/gregory-peter-yanoc-a2166a187/"
+          class="linkedin"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a href="https://github.com/crougheinman" class="linkedin"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
+    </div>
+
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li>
+          <a href="#hero" class="nav-link scrollto"
+            ><i class="bx bx-home"></i> <span>Home</span></a
+          >
+        </li>
+        <!-- <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+      <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li> -->
+        <li>
+          <a href="#skills" class="nav-link scrollto"
+            ><i class="bx bx-bar-chart"></i> <span>Skills</span></a
+          >
+        </li>
+        <li>
+          <a href="#portfolio" class="nav-link scrollto"
+            ><i class="bx bx-book-content"></i> <span>Portfolio</span></a
+          >
+        </li>
+        <li>
+          <a href="#services" class="nav-link scrollto"
+            ><i class="bx bx-briefcase"></i> <span>Services</span></a
+          >
+        </li>
+        <li>
+          <a href="#contact" class="nav-link scrollto"
+            ><i class="bx bx-envelope"></i> <span>Contact</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- .nav-menu -->
+  </div>
+</header>
+
+<script>
+  // Profile image hover effect
+  const profileImage = document.querySelector(".profile-image");
+  if (profileImage) {
+    profileImage.addEventListener("mouseenter", function () {
+      this.src = "assets/img/profile-img-look.png";
+    });
+
+    profileImage.addEventListener("mouseleave", function () {
+      this.src = "assets/img/profile-img.png";
+    });
+  }
+
+  // Make navigation links conditional based on current page
+  function updateNavigationLinks() {
+    const currentPath = window.location.pathname;
+    const currentFile = currentPath.split("/").pop();
+    const isIndexPage =
+      currentFile === "index.html" ||
+      currentFile === "" ||
+      currentPath.endsWith("/");
+
+    console.log("Current path:", currentPath);
+    console.log("Current file:", currentFile);
+    console.log("Is index page:", isIndexPage);
+
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        // If not on index page, link to index.html with anchor
+        if (!isIndexPage) {
+          link.setAttribute("href", "index.html" + href);
+          console.log("Updated link:", href, "to:", "index.html" + href);
+        } else {
+          console.log("Keeping link as is:", href);
+        }
+      }
+    });
+  }
+
+  // Run immediately and also on DOMContentLoaded for safety
+  updateNavigationLinks();
+  document.addEventListener("DOMContentLoaded", updateNavigationLinks);
+</script>
