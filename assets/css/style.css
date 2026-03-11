@@ -290,6 +290,12 @@ h6 {
   min-width: 300px;
 }
 
+#hero #skills-brands {
+  position: relative;
+  z-index: 3;
+  min-width: 300px;
+}
+
 /* Particles.js container - Mobile only */
 #particles-js {
   position: absolute;

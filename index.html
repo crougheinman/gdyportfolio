@@ -108,6 +108,17 @@
           ></span>
         </p>
       </div>
+
+      <div
+        class="d-flex align-items-center justify-content-center flex-wrap"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div
+          id="skills-brands"
+          class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-4"
+        ></div>
+      </div>
     </section>
     <!-- End Hero -->
 
@@ -932,6 +943,91 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+      // ...existing code...
+      // Brand images data
+      const skillBrands = [
+        {
+          src: "https://cdn.simpleicons.org/angular/EF2D56",
+          alt: "Angular",
+          title: "Angular",
+        },
+        {
+          src: "https://cdn.simpleicons.org/vuedotjs/42B883",
+          alt: "VueJS",
+          title: "VueJS",
+        },
+        {
+          src: "https://cdn.simpleicons.org/php/777BB4",
+          alt: "PHP",
+          title: "PHP",
+        },
+        {
+          src: "https://cdn.simpleicons.org/codeigniter/EE4623",
+          alt: "CodeIgniter",
+          title: "CodeIgniter",
+        },
+        {
+          src: "https://cdn.simpleicons.org/mysql/4479A1",
+          alt: "MySQL",
+          title: "MySQL",
+        },
+        {
+          src: "https://cdn.simpleicons.org/nodedotjs/339933",
+          alt: "NodeJS",
+          title: "NodeJS",
+        },
+        {
+          src: "https://cdn.simpleicons.org/firebase/FFCA28",
+          alt: "Firebase",
+          title: "Firebase",
+        },
+        {
+          src: "assets/img/skills/images/oracle.svg",
+          alt: "Oracle Eloqua",
+          title: "Oracle Eloqua",
+        },
+        {
+          src: "https://cdn.simpleicons.org/html5/E34F26",
+          alt: "HTML5",
+          title: "HTML5",
+        },
+        {
+          src: "https://cdn.simpleicons.org/css/1572B6",
+          alt: "CSS",
+          title: "CSS",
+        },
+        {
+          src: "https://cdn.simpleicons.org/javascript/F7DF1E",
+          alt: "Javascript",
+          title: "Javascript",
+        },
+        {
+          src: "https://cdn.simpleicons.org/typescript/3178C6",
+          alt: "Typescript",
+          title: "Typescript",
+        },
+        {
+          src: "https://cdn.simpleicons.org/jquery/0769AD",
+          alt: "JQuery",
+          title: "JQuery",
+        },
+      ];
+
+      // Render brand images
+      const brandsContainer = document.getElementById("skills-brands");
+      skillBrands.forEach((brand) => {
+        const img = document.createElement("img");
+        img.src = brand.src;
+        img.alt = brand.alt;
+        img.title = brand.title;
+        img.style.height = "32px";
+        img.style.width = "auto";
+        brandsContainer.appendChild(img);
+      });
+      // ...existing code...
+    </script>
   </body>
 
   <script>
@@ -1098,36 +1194,53 @@
       {
         category: "Frontend Frameworks",
         items: [
-          { name: "Angular", percent: 100 },
-          { name: "VueJS", percent: 90 },
+          { name: "Angular", percent: 100, icon: "bi-braces" },
+          { name: "VueJS", percent: 90, icon: "bi-braces" },
         ],
       },
       {
         category: "Backend & Server-side",
         items: [
-          { name: "PHP", percent: 100 },
-          { name: "CodeIgniter", percent: 100 },
-          { name: "MySQL", percent: 95 },
-          { name: "NodeJS", percent: 95 },
-          { name: "Firebase", percent: 80 },
-          { name: "Oracle Eloqua", percent: 80 },
-          { name: "Flask", percent: 20 },
+          { name: "PHP", percent: 100, icon: "bi-filetype-php" },
+          { name: "CodeIgniter", percent: 100, icon: "bi-code-slash" },
+          { name: "MySQL", percent: 95, icon: "bi-database" },
+          { name: "NodeJS", percent: 95, icon: "bi-hexagon" },
+          { name: "Firebase", percent: 80, icon: "bi-fire" },
+          { name: "Oracle Eloqua", percent: 80, icon: "bi-cloud" },
         ],
       },
       {
         category: "Web Technologies",
         items: [
-          { name: "HTML", percent: 100 },
-          { name: "CSS", percent: 95 },
-          { name: "Quasar", percent: 75 },
-          { name: "Javascript", percent: 95 },
-          { name: "Typescript", percent: 95 },
-          { name: "JQuery", percent: 95 },
+          { name: "HTML", percent: 100, icon: "bi-filetype-html" },
+          { name: "CSS", percent: 95, icon: "bi-filetype-css" },
+          { name: "Javascript", percent: 95, icon: "bi-filetype-js" },
+          { name: "Typescript", percent: 95, icon: "bi-braces-asterisk" },
+          { name: "JQuery", percent: 95, icon: "bi-code-slash" },
         ],
       },
     ];
 
     const skillsList = document.getElementById("skills-list");
+
+    // Map skill names to brand image URLs
+    const skillBrandMap = {
+      Angular: "https://cdn.simpleicons.org/angular/EF2D56",
+      VueJS: "https://cdn.simpleicons.org/vuedotjs/42B883",
+      PHP: "https://cdn.simpleicons.org/php/777BB4",
+      CodeIgniter: "https://cdn.simpleicons.org/codeigniter/EE4623",
+      MySQL: "https://cdn.simpleicons.org/mysql/4479A1",
+      NodeJS: "https://cdn.simpleicons.org/nodedotjs/339933",
+      Firebase: "https://cdn.simpleicons.org/firebase/FFCA28",
+      "Oracle Eloqua": "assets/img/skills/images/oracle.svg",
+      Flask: "assets/img/skills/images/flask.svg",
+      HTML: "https://cdn.simpleicons.org/html5/E34F26",
+      CSS: "https://cdn.simpleicons.org/css/1572B6",
+      Quasar: "https://cdn.simpleicons.org/quasar/1976D2",
+      Javascript: "https://cdn.simpleicons.org/javascript/F7DF1E",
+      Typescript: "https://cdn.simpleicons.org/typescript/3178C6",
+      JQuery: "https://cdn.simpleicons.org/jquery/0769AD",
+    };
 
     skills.forEach((cat) => {
       const catTitle = document.createElement("h5");
@@ -1140,8 +1253,22 @@
         progress.className = "progress";
 
         const span = document.createElement("span");
-        span.className = "skill";
-        span.innerHTML = `${item.name} <i class="val">${item.percent}%</i>`;
+        span.className = "skill d-flex align-items-center";
+        const img = document.createElement("img");
+        img.src = skillBrandMap[item.name] || "";
+        img.alt = item.name;
+        img.title = item.name;
+        img.style.height = "24px";
+        img.style.width = "auto";
+        img.style.marginRight = "8px";
+        span.appendChild(img);
+        const label = document.createElement("span");
+        label.textContent = ` ${item.name} `;
+        span.appendChild(label);
+        const val = document.createElement("i");
+        val.className = "val";
+        val.innerHTML = `&nbsp;${item.percent}%`;
+        span.appendChild(val);
         progress.appendChild(span);
 
         const wrap = document.createElement("div");
