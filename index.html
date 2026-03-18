@@ -299,8 +299,6 @@
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-projects">Projects</li>
-                <li data-filter=".filter-shortcodes">Shortcodes</li>
               </ul>
             </div>
           </div>
@@ -309,164 +307,7 @@
             class="row portfolio-container pb-lg-5"
             data-aos="fade-up"
             data-aos-delay="80"
-          >
-            <div class="col-lg-4 col-md-6 portfolio-item filter-projects">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-10.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-10.jpg"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="Get Sendy Website"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a href="gs-webflow-portfolio.html" title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-projects">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-1.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-1.jpg"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="Carbnb Website"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a href="cb-portfolio-details.html" title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-projects">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-details-1-cbadmin.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-details-1-cbadmin"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="Carbnb Admin Website"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a href="cb-admin-portfolio-details.html" title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-projects">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-details-4-tradmin.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-details-4-tradmin.jpg"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="Travel Right Admin Website"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a
-                    href="cb-tradmin-portfolio-details.html"
-                    title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-projects">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-details-4-loansys.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-details-4-loansys.jpg"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="YL Loan System Website"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a
-                    href="cb-loansys-portfolio-details.html"
-                    title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-projects">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-details-11-peb.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-details-11-peb.jpg"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="Personal Expense Budgetting"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a href="peb-portfolio-details.html" title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-shortcodes">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/portfolio-details-1-ac.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-links">
-                  <a
-                    href="assets/img/portfolio/portfolio-details-1-ac.jpg"
-                    data-gallery="portfolioGallery"
-                    class="portfolio-lightbox"
-                    title="Analog Clock"
-                    ><i class="bx bx-show"></i
-                  ></a>
-                  <a href="ac-portfolio-details.html" title="More Details"
-                    ><i class="bx bx-link"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          ></div>
         </div>
       </section>
       <!-- End Portfolio Section -->
@@ -1328,6 +1169,139 @@
 
         skillsList.appendChild(progress);
       });
+    });
+
+    // Portfolio items data
+    const portfolioItems = [
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-10.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-10.jpg",
+        lightboxTitle: "Get Sendy Website",
+        detailsHref: "gs-webflow-portfolio.html",
+        detailsTitle: "More Details",
+        techStack: ["webflow"],
+      },
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-1.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-1.jpg",
+        lightboxTitle: "Carbnb Website",
+        detailsHref: "cb-portfolio-details.html",
+        detailsTitle: "More Details",
+        techStack: ["vuejs", "quasar", "javascript", "html"],
+      },
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-details-1-cbadmin.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-details-1-cbadmin",
+        lightboxTitle: "Carbnb Admin Website",
+        detailsHref: "cb-admin-portfolio-details.html",
+        detailsTitle: "More Details",
+        techStack: ["codeigniter", "php", "html", "css", "javascript", "mysql"],
+      },
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-details-4-tradmin.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-details-4-tradmin.jpg",
+        lightboxTitle: "Travel Right Admin Website",
+        detailsHref: "cb-tradmin-portfolio-details.html",
+        detailsTitle: "More Details",
+        techStack: ["codeigniter", "php", "html", "css", "javascript", "mysql"],
+      },
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-details-4-loansys.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-details-4-loansys.jpg",
+        lightboxTitle: "YL Loan System Website",
+        detailsHref: "cb-loansys-portfolio-details.html",
+        detailsTitle: "More Details",
+        techStack: ["codeigniter", "php", "html", "css", "javascript", "mysql"],
+      },
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-details-11-peb.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-details-11-peb.jpg",
+        lightboxTitle: "Personal Expense Budgetting",
+        detailsHref: "peb-portfolio-details.html",
+        detailsTitle: "More Details",
+        techStack: ["angular", "html", "css", "firebase"],
+      },
+      {
+        filter: "shortcodes",
+        imgSrc: "assets/img/portfolio/portfolio-details-1-ac.jpg",
+        lightboxHref: "assets/img/portfolio/portfolio-details-1-ac.jpg",
+        lightboxTitle: "Analog Clock",
+        detailsHref: "ac-portfolio-details.html",
+        detailsTitle: "More Details",
+        techStack: ["html", "css"],
+      },
+    ];
+
+    // Tech icon map
+    const techIconMap = {
+      vuejs: "https://cdn.simpleicons.org/vuedotjs/42B883",
+      quasar: "https://cdn.simpleicons.org/quasar/1976D2",
+      javascript: "https://cdn.simpleicons.org/javascript/F7DF1E",
+      html: "https://cdn.simpleicons.org/html5/E34F26",
+      css: "https://cdn.simpleicons.org/css/1572B6",
+      codeigniter: "https://cdn.simpleicons.org/codeigniter/EE4623",
+      php: "https://cdn.simpleicons.org/php/777BB4",
+      mysql: "https://cdn.simpleicons.org/mysql/4479A1",
+      angular: "https://cdn.simpleicons.org/angular/EF2D56",
+      firebase: "https://cdn.simpleicons.org/firebase/FFCA28",
+      webflow: "https://cdn.simpleicons.org/webflow/4353FF",
+    };
+
+    // Get unique tech stacks
+    const allTechStacks = portfolioItems.flatMap(item => item.techStack);
+    const uniqueTechStacks = [...new Set(allTechStacks)];
+
+    // Generate filter list
+    const filterUl = document.getElementById('portfolio-flters');
+    uniqueTechStacks.forEach(tech => {
+      const li = document.createElement('li');
+      li.setAttribute('data-filter', `.filter-${tech}`);
+      const img = document.createElement('img');
+      img.src = techIconMap[tech] || '';
+      img.alt = tech;
+      img.title = tech.charAt(0).toUpperCase() + tech.slice(1);
+      img.style.height = "24px";
+      img.style.width = "auto";
+      li.appendChild(img);
+      filterUl.appendChild(li);
+    });
+
+    // Render portfolio items
+    const portfolioContainer = document.querySelector(".portfolio-container");
+    portfolioItems.forEach((item) => {
+      const colDiv = document.createElement("div");
+      const filterClasses = item.techStack.map(tech => `filter-${tech}`).join(' ');
+      colDiv.className = `col-lg-4 col-md-6 portfolio-item ${filterClasses}`;
+      const wrapDiv = document.createElement("div");
+      wrapDiv.className = "portfolio-wrap";
+      const img = document.createElement("img");
+      img.src = item.imgSrc;
+      img.className = "img-fluid";
+      img.alt = "";
+      wrapDiv.appendChild(img);
+      const linksDiv = document.createElement("div");
+      linksDiv.className = "portfolio-links";
+      const lightboxA = document.createElement("a");
+      lightboxA.href = item.lightboxHref;
+      lightboxA.setAttribute("data-gallery", "portfolioGallery");
+      lightboxA.className = "portfolio-lightbox";
+      lightboxA.title = item.lightboxTitle;
+      lightboxA.innerHTML = '<i class="bx bx-show"></i>';
+      linksDiv.appendChild(lightboxA);
+      const detailsA = document.createElement("a");
+      detailsA.href = item.detailsHref;
+      detailsA.title = item.detailsTitle;
+      detailsA.innerHTML = '<i class="bx bx-link"></i>';
+      linksDiv.appendChild(detailsA);
+      wrapDiv.appendChild(linksDiv);
+      colDiv.appendChild(wrapDiv);
+      portfolioContainer.appendChild(colDiv);
     });
 
     // Load header component
