@@ -75,6 +75,418 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- Skills section redesign -->
+    <style>
+      #skills .skills-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 2.75rem;
+      }
+      #skills .skills-cat-title {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin: 0 0 1.25rem;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #008184;
+      }
+      #skills .skills-cat-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, rgba(0, 129, 132, 0.45), rgba(0, 129, 132, 0));
+      }
+      #skills .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 1rem;
+      }
+      #skills .skill-card {
+        background: #fff;
+        border: 1px solid #e6eef3;
+        border-radius: 14px;
+        padding: 1.05rem 1.15rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+      #skills .skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 28px rgba(0, 129, 132, 0.16);
+        border-color: #008184;
+      }
+      #skills .skill-card-head {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.85rem;
+      }
+      #skills .skill-logo {
+        flex: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 11px;
+        background: #e6f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #skills .skill-logo img {
+        width: 27px;
+        height: 27px;
+        object-fit: contain;
+      }
+      #skills .skill-name {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.2;
+        color: #173f3f;
+      }
+      #skills .skill-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.4rem;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: #6c8aa5;
+      }
+      #skills .skill-meta .skill-pct {
+        color: #008184;
+      }
+      #skills .skill-track {
+        height: 7px;
+        border-radius: 99px;
+        background: #eaf2f7;
+        overflow: hidden;
+      }
+      #skills .skill-fill {
+        height: 100%;
+        width: 0;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #008184, #00bfc3);
+        transition: width 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+    </style>
+
+    <!-- Services section redesign -->
+    <style>
+      #services .service-card {
+        position: relative;
+        background: #fff;
+        border: 1px solid #e6efef;
+        border-radius: 16px;
+        padding: 2rem 1.75rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      }
+      #services .service-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 3px;
+        width: 0;
+        background: linear-gradient(90deg, #008184, #00bfc3);
+        transition: width 0.3s ease;
+      }
+      #services .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 36px rgba(0, 129, 132, 0.16);
+        border-color: #008184;
+      }
+      #services .service-card:hover::before {
+        width: 100%;
+      }
+      #services .service-icon {
+        width: 62px;
+        height: 62px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e6f2f2;
+        margin-bottom: 1.35rem;
+        transition: background 0.25s ease, transform 0.25s ease;
+      }
+      #services .service-icon i {
+        font-size: 28px;
+        line-height: 0;
+        color: #008184;
+        transition: color 0.25s ease;
+      }
+      #services .service-card:hover .service-icon {
+        background: linear-gradient(135deg, #008184, #00bfc3);
+        transform: rotate(-6deg) scale(1.06);
+      }
+      #services .service-card:hover .service-icon i {
+        color: #fff;
+      }
+      #services .service-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #173f3f;
+        margin-bottom: 0.6rem;
+      }
+      #services .service-desc {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: #5b6b6b;
+        margin-bottom: 0;
+      }
+    </style>
+
+    <!-- Portfolio section redesign -->
+    <style>
+      #portfolio #portfolio-flters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0;
+        margin: 0 0 2.5rem;
+        list-style: none;
+      }
+      #portfolio #portfolio-flters li {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 0.95rem;
+        border-radius: 99px;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #e1ebeb;
+        color: #5b6b6b;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      }
+      #portfolio #portfolio-flters li img {
+        height: 18px;
+        width: auto;
+        display: block;
+      }
+      #portfolio #portfolio-flters li:hover {
+        color: #008184;
+        border-color: #008184;
+      }
+      #portfolio #portfolio-flters li.filter-active {
+        background: #008184;
+        border-color: #008184;
+        color: #fff;
+      }
+      #portfolio .pf-card {
+        display: block;
+        border-radius: 16px;
+        overflow: hidden;
+        text-decoration: none;
+        background: #fff;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      #portfolio .pf-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 129, 132, 0.18);
+      }
+      #portfolio .pf-media {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: #eef4f4;
+      }
+      #portfolio .pf-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      #portfolio .pf-card:hover .pf-media img {
+        transform: scale(1.08);
+      }
+      #portfolio .pf-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding: 1.1rem 1.2rem;
+        background: linear-gradient(
+          to top,
+          rgba(0, 49, 50, 0.9) 0%,
+          rgba(0, 49, 50, 0.4) 50%,
+          rgba(0, 49, 50, 0) 100%
+        );
+      }
+      #portfolio .pf-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      #portfolio .pf-card:hover .pf-tags {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #portfolio .pf-tags span {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.94);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #portfolio .pf-tags span img {
+        width: 17px;
+        height: 17px;
+        object-fit: contain;
+      }
+      #portfolio .pf-title {
+        color: #fff;
+        font-size: 17px;
+        font-weight: 700;
+        margin: 0;
+      }
+      #portfolio .pf-view {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #6ee7e7;
+        font-size: 13px;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      #portfolio .pf-card:hover .pf-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #portfolio .pf-view i {
+        transition: transform 0.2s ease;
+      }
+      #portfolio .pf-card:hover .pf-view i {
+        transform: translateX(3px);
+      }
+    </style>
+
+    <!-- Contact section redesign -->
+    <style>
+      #contact .contact-info-card {
+        background: linear-gradient(160deg, #008184, #00595b);
+        color: #fff;
+        border-radius: 18px;
+        padding: 2.25rem;
+        box-shadow: 0 14px 30px rgba(0, 129, 132, 0.25);
+      }
+      #contact .contact-info-card h3 {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      #contact .contact-info-card .intro {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 14.5px;
+        line-height: 1.7;
+        margin-bottom: 1.85rem;
+      }
+      #contact .contact-info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+      }
+      #contact .contact-info-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      #contact .ci-icon {
+        flex: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #fff;
+      }
+      #contact .ci-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.15rem;
+      }
+      #contact .ci-value,
+      #contact .ci-value a {
+        color: #fff;
+        font-size: 14.5px;
+        word-break: break-word;
+        text-decoration: none;
+      }
+      #contact .ci-value a:hover {
+        text-decoration: underline;
+      }
+      #contact .contact-form-card {
+        background: #fff;
+        border: 1px solid #e6efef;
+        border-radius: 18px;
+        padding: 2.25rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        width: 100%;
+      }
+      #contact .contact-form-card label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #173f3f;
+        margin-bottom: 0.35rem;
+      }
+      #contact .contact-form-card .form-control {
+        border: 1px solid #dbe6e6;
+        border-radius: 10px;
+        padding: 0.7rem 0.9rem;
+        font-size: 14.5px;
+        box-shadow: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      #contact .contact-form-card .form-control:focus {
+        border-color: #008184;
+        box-shadow: 0 0 0 3px rgba(0, 129, 132, 0.15);
+      }
+      #contact .contact-form-card button[type="submit"] {
+        background: linear-gradient(90deg, #008184, #00bfc3);
+        color: #fff;
+        border: 0;
+        border-radius: 99px;
+        padding: 0.8rem 2.4rem;
+        font-weight: 600;
+        font-size: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      #contact .contact-form-card button[type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(0, 129, 132, 0.3);
+      }
+    </style>
   </head>
 
   <body>
@@ -328,92 +740,83 @@
             </p>
           </div>
 
-          <div class="row">
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bi bi-code-slash"></i></div>
-              <h4 class="title">Full-Stack Web Development</h4>
-              <p class="description">
-                Complete web application development from frontend to backend,
-                utilizing modern frameworks like Angular, Vue.js, React, and
-                server-side technologies including PHP and Node.js.
-              </p>
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-code-slash"></i></div>
+                <h4 class="service-title">Full-Stack Web Development</h4>
+                <p class="service-desc">
+                  Complete web application development from frontend to backend,
+                  utilizing modern frameworks like Angular, Vue.js, React, and
+                  server-side technologies including PHP and Node.js.
+                </p>
+              </div>
             </div>
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="icon"><i class="bi bi-window"></i></div>
-              <h4 class="title">Frontend Development</h4>
-              <p class="description">
-                Creating responsive and interactive user interfaces using
-                Angular, Vue.js, React, HTML5, CSS3, and modern JavaScript frameworks
-                for optimal user experience.
-              </p>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-window"></i></div>
+                <h4 class="service-title">Frontend Development</h4>
+                <p class="service-desc">
+                  Creating responsive and interactive user interfaces using
+                  Angular, Vue.js, React, HTML5, CSS3, and modern JavaScript
+                  frameworks for optimal user experience.
+                </p>
+              </div>
             </div>
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="icon"><i class="bi bi-server"></i></div>
-              <h4 class="title">Backend Development</h4>
-              <p class="description">
-                Robust server-side development with PHP, CodeIgniter framework,
-                Node.js, and RESTful API design for scalable and secure web
-                applications.
-              </p>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-server"></i></div>
+                <h4 class="service-title">Backend Development</h4>
+                <p class="service-desc">
+                  Robust server-side development with PHP, CodeIgniter framework,
+                  Node.js, and RESTful API design for scalable and secure web
+                  applications.
+                </p>
+              </div>
             </div>
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="icon"><i class="bi bi-database"></i></div>
-              <h4 class="title">Database Design & Management</h4>
-              <p class="description">
-                MySQL database architecture, optimization, and management with
-                expertise in data modeling, query optimization, and database
-                security best practices.
-              </p>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-database"></i></div>
+                <h4 class="service-title">Database Design &amp; Management</h4>
+                <p class="service-desc">
+                  MySQL database architecture, optimization, and management with
+                  expertise in data modeling, query optimization, and database
+                  security best practices.
+                </p>
+              </div>
             </div>
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <div class="icon"><i class="bi bi-cloud"></i></div>
-              <h4 class="title">Firebase Integration</h4>
-              <p class="description">
-                Authentication, real-time database, cloud functions, and hosting
-                integration using Firebase platform for modern web applications.
-              </p>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-cloud"></i></div>
+                <h4 class="service-title">Firebase Integration</h4>
+                <p class="service-desc">
+                  Authentication, real-time database, cloud functions, and
+                  hosting integration using Firebase platform for modern web
+                  applications.
+                </p>
+              </div>
             </div>
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="icon"><i class="bi bi-envelope"></i></div>
-              <h4 class="title">Email Marketing & Automation</h4>
-              <p class="description">
-                Email campaign development, marketing automation, and Oracle
-                Eloqua integration for effective customer communication and
-                marketing strategies.
-              </p>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-envelope"></i></div>
+                <h4 class="service-title">Email Marketing &amp; Automation</h4>
+                <p class="service-desc">
+                  Email campaign development, marketing automation, and Oracle
+                  Eloqua integration for effective customer communication and
+                  marketing strategies.
+                </p>
+              </div>
             </div>
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              <div class="icon"><i class="bi bi-palette"></i></div>
-              <h4 class="title">Web Designing</h4>
-              <p class="description">
-                Crafting visually appealing and user-friendly web designs using
-                Figma for prototyping and Webflow for seamless design-to-code
-                implementation.
-              </p>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+              <div class="service-card h-100">
+                <div class="service-icon"><i class="bi bi-palette"></i></div>
+                <h4 class="service-title">Web Designing</h4>
+                <p class="service-desc">
+                  Crafting visually appealing and user-friendly web designs using
+                  Figma for prototyping and Webflow for seamless design-to-code
+                  implementation.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -429,10 +832,8 @@
             <em>-John Ruskin</em>
           </div>
 
-          <div class="row skills-content">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <div id="skills-list"></div>
-            </div>
+          <div class="skills-content" data-aos="fade-up" data-aos-delay="100">
+            <div id="skills-list" class="skills-categories"></div>
           </div>
         </div>
       </section>
@@ -691,47 +1092,56 @@
             <h2>Contact</h2>
           </div>
 
-          <div class="row" data-aos="fade-in">
+          <div class="row g-4" data-aos="fade-in">
             <div class="col-lg-5 d-flex align-items-stretch">
-              <div class="info">
-                <div class="email">
-                  <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>gregorypeteryanoc.gpy@gmail.com</p>
-                </div>
-
-                <div class="phone">
-                  <i class="bi bi-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+63 926 778 8110 / +63 949 1959 581</p>
-                </div>
-
-                <div class="linkedin">
-                  <i class="bx bxl-linkedin"></i>
-                  <h4>LinkedIn:</h4>
-                  <p>
-                    <a
-                      href="https://www.linkedin.com/in/gregory-peter-yanoc-a2166a187/"
-                      target="_blank"
-                      >gregory-peter-yanoc</a
-                    >
-                  </p>
-                </div>
-
-                <div class="github">
-                  <i class="bx bxl-github"></i>
-                  <h4>GitHub:</h4>
-                  <p>
-                    <a href="https://github.com/crougheinman" target="_blank"
-                      >crougheinman</a
-                    >
-                  </p>
-                </div>
+              <div class="contact-info-card">
+                <h3>Let's work together</h3>
+                <p class="intro">
+                  Have a project in mind or just want to say hello? Reach out
+                  through any of the channels below or send a message and I'll
+                  get back to you soon.
+                </p>
+                <ul class="contact-info-list">
+                  <li>
+                    <span class="ci-icon"><i class="bi bi-envelope"></i></span>
+                    <div>
+                      <div class="ci-label">Email</div>
+                      <div class="ci-value">
+                        <a href="mailto:gregorypeteryanoc.gpy@gmail.com">gregorypeteryanoc.gpy@gmail.com</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="ci-icon"><i class="bi bi-phone"></i></span>
+                    <div>
+                      <div class="ci-label">Call</div>
+                      <div class="ci-value">+63 926 778 8110 / +63 949 1959 581</div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="ci-icon"><i class="bx bxl-linkedin"></i></span>
+                    <div>
+                      <div class="ci-label">LinkedIn</div>
+                      <div class="ci-value">
+                        <a href="https://www.linkedin.com/in/gregory-peter-yanoc-a2166a187/" target="_blank">gregory-peter-yanoc</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="ci-icon"><i class="bx bxl-github"></i></span>
+                    <div>
+                      <div class="ci-label">GitHub</div>
+                      <div class="ci-value">
+                        <a href="https://github.com/crougheinman" target="_blank">crougheinman</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form name="submit-to-google-sheet" class="php-email-form">
+            <div class="col-lg-7 d-flex align-items-stretch">
+              <form name="submit-to-google-sheet" class="php-email-form contact-form-card">
                 <input
                   type="hidden"
                   class="form-control"
@@ -750,7 +1160,7 @@
                     />
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="name">Your Email</label>
+                    <label for="email">Your Email</label>
                     <input
                       type="email"
                       class="form-control"
@@ -761,7 +1171,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="name">Subject</label>
+                  <label for="subject">Subject</label>
                   <input
                     type="text"
                     class="form-control"
@@ -771,11 +1181,12 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="name">Message</label>
+                  <label for="message">Message</label>
                   <textarea
                     class="form-control"
                     name="message"
-                    rows="10"
+                    id="message"
+                    rows="8"
                     required
                   ></textarea>
                 </div>
@@ -787,7 +1198,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" id="submit">Send</button>
+                  <button type="submit" id="submit">Send Message <i class="bi bi-send"></i></button>
                 </div>
               </form>
             </div>
@@ -1130,51 +1541,91 @@
     };
 
     skills.forEach((cat) => {
-      const catTitle = document.createElement("h5");
-      catTitle.className = "mb-3 mt-4";
-      catTitle.textContent = cat.category;
-      skillsList.appendChild(catTitle);
+      const block = document.createElement("div");
+      block.className = "skills-cat";
+
+      const title = document.createElement("div");
+      title.className = "skills-cat-title";
+      title.textContent = cat.category;
+      block.appendChild(title);
+
+      const grid = document.createElement("div");
+      grid.className = "skills-grid";
 
       cat.items.forEach((item) => {
-        const progress = document.createElement("div");
-        progress.className = "progress";
+        const card = document.createElement("div");
+        card.className = "skill-card";
 
-        const span = document.createElement("span");
-        span.className = "skill d-flex align-items-center";
+        const head = document.createElement("div");
+        head.className = "skill-card-head";
+
+        const logo = document.createElement("div");
+        logo.className = "skill-logo";
         const img = document.createElement("img");
         img.src = skillBrandMap[item.name] || "";
         img.alt = item.name;
         img.title = item.name;
-        img.style.height = "24px";
-        img.style.width = "auto";
-        img.style.marginRight = "8px";
-        span.appendChild(img);
-        const label = document.createElement("span");
-        label.textContent = ` ${item.name} `;
-        span.appendChild(label);
-        const val = document.createElement("i");
-        val.className = "val";
-        val.innerHTML = `&nbsp;${item.percent}%`;
-        span.appendChild(val);
-        progress.appendChild(span);
+        img.loading = "lazy";
+        logo.appendChild(img);
 
-        const wrap = document.createElement("div");
-        wrap.className = "progress-bar";
+        const name = document.createElement("div");
+        name.className = "skill-name";
+        name.textContent = item.name;
 
-        const bar = document.createElement("div");
-        bar.className = "progress-bar";
-        bar.setAttribute("role", "progressbar");
-        bar.setAttribute("aria-valuenow", item.percent);
-        bar.setAttribute("aria-valuemin", "0");
-        bar.setAttribute("aria-valuemax", "100");
-        bar.style.width = item.percent + "%";
+        head.appendChild(logo);
+        head.appendChild(name);
 
-        wrap.appendChild(bar);
-        progress.appendChild(wrap);
+        const meta = document.createElement("div");
+        meta.className = "skill-meta";
+        const metaLabel = document.createElement("span");
+        metaLabel.textContent = "Proficiency";
+        const metaPct = document.createElement("span");
+        metaPct.className = "skill-pct";
+        metaPct.textContent = item.percent + "%";
+        meta.appendChild(metaLabel);
+        meta.appendChild(metaPct);
 
-        skillsList.appendChild(progress);
+        const track = document.createElement("div");
+        track.className = "skill-track";
+        const fill = document.createElement("div");
+        fill.className = "skill-fill";
+        fill.setAttribute("role", "progressbar");
+        fill.setAttribute("aria-valuenow", item.percent);
+        fill.setAttribute("aria-valuemin", "0");
+        fill.setAttribute("aria-valuemax", "100");
+        fill.dataset.width = item.percent;
+        track.appendChild(fill);
+
+        card.appendChild(head);
+        card.appendChild(meta);
+        card.appendChild(track);
+        grid.appendChild(card);
       });
+
+      block.appendChild(grid);
+      skillsList.appendChild(block);
     });
+
+    // Animate the bars when they scroll into view.
+    const skillFills = skillsList.querySelectorAll(".skill-fill");
+    if ("IntersectionObserver" in window) {
+      const skillObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.width = entry.target.dataset.width + "%";
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      skillFills.forEach((fill) => skillObserver.observe(fill));
+    } else {
+      skillFills.forEach((fill) => {
+        fill.style.width = fill.dataset.width + "%";
+      });
+    }
 
     // Portfolio items data
     const portfolioItems = [
@@ -1184,6 +1635,15 @@
         lightboxHref: "assets/img/portfolio/portfolio-12.jpg",
         lightboxTitle: "Mattres2Go E-commerce Website",
         detailsHref: "m2g-portfolio.html",
+        detailsTitle: "More Details",
+        techStack: ["reactjs","javascript", "html", "css"],
+      },
+      {
+        filter: "projects",
+        imgSrc: "assets/img/portfolio/portfolio-13.png",
+        lightboxHref: "assets/img/portfolio/portfolio-13.png",
+        lightboxTitle: "Copa Mattress and Furniture E-commerce Website",
+        detailsHref: "copa-portfolio.html",
         detailsTitle: "More Details",
         techStack: ["reactjs","javascript", "html", "css"],
       },
@@ -1302,18 +1762,51 @@
       const colDiv = document.createElement("div");
       const filterClasses = item.techStack.map(tech => `filter-${tech}`).join(' ');
       colDiv.className = `col-lg-4 col-md-6 portfolio-item ${filterClasses}`;
-      const detailsLink = document.createElement("a");
-      detailsLink.href = item.detailsHref;
-      detailsLink.title = item.detailsTitle;
-      detailsLink.className = "portfolio-wrap";
-      detailsLink.style.display = "block";
-      detailsLink.style.textDecoration = "none";
+
+      const card = document.createElement("a");
+      card.href = item.detailsHref;
+      card.title = item.detailsTitle;
+      card.className = "pf-card";
+
+      const media = document.createElement("div");
+      media.className = "pf-media";
+
       const img = document.createElement("img");
       img.src = item.imgSrc;
-      img.className = "img-fluid";
       img.alt = item.lightboxTitle || item.detailsTitle || "Portfolio Item";
-      detailsLink.appendChild(img);
-      colDiv.appendChild(detailsLink);
+      img.loading = "lazy";
+      media.appendChild(img);
+
+      const overlay = document.createElement("div");
+      overlay.className = "pf-overlay";
+
+      const tags = document.createElement("div");
+      tags.className = "pf-tags";
+      item.techStack.forEach((tech) => {
+        if (!techIconMap[tech]) return;
+        const chip = document.createElement("span");
+        const ti = document.createElement("img");
+        ti.src = techIconMap[tech];
+        ti.alt = tech;
+        ti.title = tech.charAt(0).toUpperCase() + tech.slice(1);
+        chip.appendChild(ti);
+        tags.appendChild(chip);
+      });
+
+      const title = document.createElement("h4");
+      title.className = "pf-title";
+      title.textContent = item.lightboxTitle || item.detailsTitle || "";
+
+      const view = document.createElement("span");
+      view.className = "pf-view";
+      view.innerHTML = 'View details <i class="bi bi-arrow-right"></i>';
+
+      overlay.appendChild(tags);
+      overlay.appendChild(title);
+      overlay.appendChild(view);
+      media.appendChild(overlay);
+      card.appendChild(media);
+      colDiv.appendChild(card);
       portfolioContainer.appendChild(colDiv);
     });
 
