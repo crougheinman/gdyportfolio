@@ -114,6 +114,10 @@ porti/
    - Contact form handler → `fetch(scriptURL, {method:"POST", body:FormData})` to the Google Apps Script,
      then SweetAlert feedback.
    - Birthday easter egg (hardcoded DOB 1991-07-08), `document.referrer` capture, mobile-only particles.js.
+   - Hero green smoke (**desktop only**, last `<script>`): a WebGL fbm shader renders drifting green/teal smoke
+     (matches the site's `#008184` accent) on `#smoke-canvas` at 0.4 opacity over the hero background; **GSAP**
+     (CDN, SRI-pinned) drives the loop/fade/breathing. Gated to `(min-width: 769px)` so the mobile hero
+     (particles.js + photo) is untouched; static frame under `prefers-reduced-motion`.
    - `fetch("header.html")` → injects shared header, then re-executes its `<script>` tags manually.
 
 Detail pages are simpler: shared `<head>`, `#header-placeholder` (same fetch in `header.html`'s consumer),
