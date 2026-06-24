@@ -121,7 +121,9 @@ porti/
    - `fetch("header.html")` → injects shared header, then re-executes its `<script>` tags manually.
 
 Detail pages are simpler: shared `<head>`, `#header-placeholder` (same fetch in `header.html`'s consumer),
-breadcrumbs, and a `.portfolio-details-slider` Swiper. Each is **hand-maintained standalone HTML**.
+breadcrumbs, then a case-study layout — a **full-width hero carousel** (`.pd-hero` > `.portfolio-details-slider`
+Swiper) followed by a `.pd-body` row: `.pd-main` (col-lg-8, the `.portfolio-description` blocks) + `.pd-side`
+(col-lg-4, the sticky `.portfolio-info` card). Each is **hand-maintained standalone HTML**.
 
 ---
 
