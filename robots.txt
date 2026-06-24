@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crougheinman.github.io/gdyportfolio/sitemap.xml
+Sitemap: https://gdyportfolio.vercel.app/sitemap.xml

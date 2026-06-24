@@ -10,10 +10,10 @@
 **porti** is the source for **Gregory Peter Yanoc's personal developer portfolio** — a **static, build-less
 website** (plain HTML + CSS + vanilla JS) based on the BootstrapMade **iPortfolio** template.
 
-- **Live site:** https://crougheinman.github.io/gdyportfolio/
+- **Live site:** https://gdyportfolio.vercel.app/
 - **Repo:** https://github.com/crougheinman/gdyportfolio.git (local folder name is `porti`)
-- **Hosting:** GitHub Pages (serves the repo root as-is — no build/CI step)
-- **No package.json, no bundler, no framework.** You edit HTML/CSS/JS and push; GitHub Pages publishes.
+- **Hosting:** Vercel (static deploy from the repo root — no build/CI step) at `gdyportfolio.vercel.app`
+- **No package.json, no bundler, no framework.** You edit HTML/CSS/JS and push; Vercel publishes.
 - **Owner contact in-page:** gregorypeteryanoc.gpy@gmail.com · LinkedIn `gregory-peter-yanoc` · GitHub `crougheinman`
 
 ### Most important thing to know
@@ -50,7 +50,7 @@ Then open http://localhost:8000 . There is **no test suite, linter, or build com
 | UI libraries | Bootstrap 5.3, Bootstrap Icons, Boxicons, AOS (scroll anim), Swiper (sliders), Isotope (portfolio filter), GLightbox (lightbox), Typed.js (hero typing), Waypoints, PureCounter |
 | CDN runtime  | particles.js (mobile-only hero background, jsDelivr), SweetAlert (form alerts, unpkg), Google Fonts, `cdn.simpleicons.org` (tech/skill logos, fetched per-icon at runtime) |
 | Backend      | **None.** The contact form POSTs to a **Google Apps Script** web app that appends rows to a Google Sheet. |
-| Hosting      | GitHub Pages |
+| Hosting      | Vercel (static) — `gdyportfolio.vercel.app` |
 
 ---
 
@@ -159,7 +159,7 @@ breadcrumbs, and a `.portfolio-details-slider` Swiper. Each is **hand-maintained
 ## 8. SEO setup (already wired)
 
 - Per-page unique `<title>`, `<meta name="description">`, canonical, OG/Twitter tags.
-- `robots.txt` + `sitemap.xml` at root (base URL `https://crougheinman.github.io/gdyportfolio/`).
+- `robots.txt` + `sitemap.xml` at root (base URL `https://gdyportfolio.vercel.app/`).
 - JSON-LD structured data in `index.html`: `Person` (+ `sameAs` socials, `knowsAbout` skills) and `WebSite`.
 - Unused/orphan pages (`about`, `inner-page`, `sample-page`, `ac-portfolio-details`, `cb-tradmin-…`) carry
   `<meta name="robots" content="noindex,follow">` to keep thin/duplicate pages out of the index.
