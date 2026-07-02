@@ -71,7 +71,8 @@ porti/
 │   ├── cb-admin-portfolio-details.html# Carbnb Admin (CodeIgniter/PHP)
 │   ├── cb-loansys-portfolio-details.html # YL Loan System (CodeIgniter/PHP)
 │   ├── peb-portfolio-details.html     # Personal Expense Budgeting (Angular/Firebase)
-│   └── watchy-portfolio-details.html  # Watchy streaming app (React/TS/Vite/Capacitor/Supabase)
+│   ├── watchy-portfolio-details.html  # Watchy streaming app (React/TS/Vite/Capacitor/Supabase)
+│   └── entity-portfolio-details.html  # Entity Duel / LeafWar — React trading card game (React/Vite/Zustand/Supabase)
 │
 ├── about.html, inner-page.html, sample-page.html  # UNUSED template leftovers (marked noindex)
 ├── ac-portfolio-details.html, cb-tradmin-portfolio-details.html  # ORPHANED: commented out of portfolioItems, not linked (noindex)
