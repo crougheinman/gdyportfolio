@@ -161,6 +161,95 @@
       }
     </style>
 
+    <!-- Certifications section -->
+    <style>
+      #certifications .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 1.25rem;
+      }
+      #certifications .cert-card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #e6eef3;
+        border-radius: 14px;
+        padding: 1.25rem 1.35rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+      #certifications .cert-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(23, 63, 63, 0.12);
+        border-color: #008184;
+      }
+      #certifications .cert-head {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+      }
+      #certifications .cert-logo {
+        flex: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: #e6f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #certifications .cert-logo img {
+        width: 28px;
+        height: 28px;
+      }
+      #certifications .cert-issuer {
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #008184;
+      }
+      #certifications .cert-title {
+        margin: 0 0 0.9rem;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.35;
+        color: #173f3f;
+      }
+      #certifications .cert-dates {
+        margin: 0 0 1.1rem;
+        padding: 0;
+        list-style: none;
+        font-size: 13px;
+        color: #6c8aa5;
+      }
+      #certifications .cert-dates strong {
+        color: #173f3f;
+        font-weight: 600;
+      }
+      #certifications .cert-verify {
+        margin-top: auto;
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 0.95rem;
+        border: 1px solid #008184;
+        border-radius: 99px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #008184;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      #certifications .cert-verify:hover,
+      #certifications .cert-verify:focus-visible {
+        background: #008184;
+        color: #fff;
+      }
+    </style>
+
     <!-- Services section redesign -->
     <style>
       #services .service-card {
@@ -862,6 +951,22 @@
         </div>
       </section>
       <!-- End Skills Section -->
+
+      <!-- ======= Certifications Section ======= -->
+      <section id="certifications" class="certifications">
+        <div class="container">
+          <div class="section-title">
+            <h2>Certifications</h2>
+            <p>
+              Industry credentials, each verifiable on Oracle's official
+              certification registry.
+            </p>
+          </div>
+
+          <div id="cert-list" class="cert-grid"></div>
+        </div>
+      </section>
+      <!-- End Certifications Section -->
 
       <!-- ======= Resume Section ======= -->
       <section id="resume" class="resume hide">
@@ -1666,6 +1771,79 @@
         fill.style.width = fill.dataset.width + "%";
       });
     }
+
+    // Certifications (verifiable Oracle badges)
+    const certifications = [
+      {
+        title: "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
+        issued: "June 18, 2026",
+        valid: "June 18, 2028",
+        href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=90357A35F0238FA60E9C9173454F67AFC630ECC75D46FF4406DD7638F073A111",
+      },
+      {
+        title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+        issued: "June 17, 2026",
+        valid: "June 17, 2028",
+        href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=9E5B4BDDE7E4CC391B0BAB6CB048D7AC9F2DD8B6C9E6021BE6EEFFD9208A8DAD",
+      },
+      {
+        title: "Eloqua Essentials Expert 2023",
+        issued: "November 30, 2023",
+        href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=697923E2EFB54BCCBB53AABD63DA378BFA1027E69FD29F3E58A2331A84A62DAC",
+      },
+    ];
+
+    const certList = document.getElementById("cert-list");
+    certifications.forEach((c, i) => {
+      const card = document.createElement("article");
+      card.className = "cert-card";
+      card.setAttribute("data-aos", "fade-up");
+      card.setAttribute("data-aos-delay", i * 100);
+
+      const head = document.createElement("div");
+      head.className = "cert-head";
+      const logo = document.createElement("div");
+      logo.className = "cert-logo";
+      const img = document.createElement("img");
+      img.src = "assets/img/skills/images/oracle.svg";
+      img.alt = "";
+      logo.appendChild(img);
+      const issuer = document.createElement("div");
+      issuer.className = "cert-issuer";
+      issuer.textContent = "Oracle";
+      head.appendChild(logo);
+      head.appendChild(issuer);
+
+      const title = document.createElement("h3");
+      title.className = "cert-title";
+      title.textContent = c.title;
+
+      const dates = document.createElement("ul");
+      dates.className = "cert-dates";
+      [["Issued", c.issued], ["Valid until", c.valid]].forEach(([label, value]) => {
+        if (!value) return;
+        const li = document.createElement("li");
+        const strong = document.createElement("strong");
+        strong.textContent = label + ": ";
+        li.appendChild(strong);
+        li.appendChild(document.createTextNode(value));
+        dates.appendChild(li);
+      });
+
+      const link = document.createElement("a");
+      link.className = "cert-verify";
+      link.href = c.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", "Verify " + c.title + " on Oracle");
+      link.innerHTML = 'Verify credential <i class="bi bi-box-arrow-up-right"></i>';
+
+      card.appendChild(head);
+      card.appendChild(title);
+      card.appendChild(dates);
+      card.appendChild(link);
+      certList.appendChild(card);
+    });
 
     // Portfolio items data
     const portfolioItems = [
