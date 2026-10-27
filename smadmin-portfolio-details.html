@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- SEO Meta Tags -->
+    <title>Smith Group Admin - Multi-Tenant Back Office (CodeIgniter 4) | Gregory Peter Yanoc</title>
+    <meta name="title" content="Smith Group Admin - Multi-Tenant Back Office (CodeIgniter 4) | Gregory Peter Yanoc" />
+    <meta name="description" content="Multi-tenant admin back office and REST API built with CodeIgniter 4, PHP and MySQL by Gregory Peter Yanoc - orders from scanned invoices, delivery routing, SMS and WhatsApp messaging, role-based access." />
+    <meta name="author" content="Gregory Peter Yanoc" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#008184" />
+    <meta name="keywords" content="CodeIgniter 4, PHP, MySQL, multi-tenant, admin dashboard, back office, REST API, order management, delivery routing, Twilio, Gregory Peter Yanoc" />
+    <link rel="canonical" href="https://gdyportfolio.vercel.app/smadmin-portfolio-details.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.simpleicons.org" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gregory Peter Yanoc Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://gdyportfolio.vercel.app/smadmin-portfolio-details.html" />
+    <meta property="og:title" content="Smith Group Admin - Multi-Tenant Back Office (CodeIgniter 4) | Gregory Peter Yanoc" />
+    <meta property="og:description" content="Multi-tenant admin back office and REST API built with CodeIgniter 4, PHP and MySQL by Gregory Peter Yanoc - orders from scanned invoices, delivery routing, SMS and WhatsApp messaging, role-based access." />
+    <meta property="og:image" content="https://gdyportfolio.vercel.app/assets/img/portfolio/portfolio-details-1-smadmin.webp" />
+    <meta property="og:image:alt" content="Smith Group Admin dashboard with daily orders, delivery capacity and drafts to review" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://gdyportfolio.vercel.app/smadmin-portfolio-details.html" />
+    <meta name="twitter:title" content="Smith Group Admin - Multi-Tenant Back Office (CodeIgniter 4) | Gregory Peter Yanoc" />
+    <meta name="twitter:description" content="Multi-tenant admin back office and REST API built with CodeIgniter 4, PHP and MySQL by Gregory Peter Yanoc - orders from scanned invoices, delivery routing, SMS and WhatsApp messaging, role-based access." />
+    <meta name="twitter:image" content="https://gdyportfolio.vercel.app/assets/img/portfolio/portfolio-details-1-smadmin.webp" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Smith Group Admin",
+  "url": "https://gdyportfolio.vercel.app/smadmin-portfolio-details.html",
+  "image": "https://gdyportfolio.vercel.app/assets/img/portfolio/portfolio-details-1-smadmin.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Gregory Peter Yanoc",
+    "url": "https://gdyportfolio.vercel.app/"
+  },
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en"
+}
+    </script>
+  </head>
+
+  <body>
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+    <div id="header-placeholder"></div>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Smith Group Admin</h2>
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li>Smith Group Admin</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <!-- ======= Portfolio Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="pd-hero">
+                <div class="portfolio-details-slider swiper">
+                  <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide">
+                      <img
+                        src="assets/img/portfolio/portfolio-details-1-smadmin.webp"
+                        alt="Smith Group Admin dashboard with today's orders, delivery capacity and drafts to review"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="assets/img/portfolio/portfolio-details-2-smadmin.webp"
+                        alt="Smith Group Admin orders list with search, store, status and fulfillment filters"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="assets/img/portfolio/portfolio-details-3-smadmin.webp"
+                        alt="Smith Group Admin order details with line items, payments and a five-step status tracker"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="assets/img/portfolio/portfolio-details-4-smadmin.webp"
+                        alt="Smith Group Admin deliveries and routes board with 14-day capacity by zone"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="assets/img/portfolio/portfolio-details-5-smadmin.webp"
+                        alt="Smith Group Admin Message Centre showing every automatic and manual SMS and WhatsApp trigger"
+                      />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gy-4 pd-body mt-4">
+            <div class="col-lg-8 pd-main">
+              <div class="portfolio-description">
+                <h2>Smith Group Admin</h2>
+                <p>
+                  Smith Group Admin is the multi-tenant back office behind a
+                  group of mattress and furniture retailers. One CodeIgniter 4
+                  application serves several stores, each with its own orders,
+                  staff, delivery zones and website, and the same app exposes the
+                  REST API that every store's storefront calls.
+                </p>
+                <p>
+                  Staff scan paper invoices and the system turns them into
+                  orders, then carries each order through payment, delivery
+                  scheduling and customer messaging. Sales reps, managers,
+                  delivery crews and warehouse workers each see only the screens
+                  their role needs.
+                </p>
+                <ul>
+                  <li>
+                    <img src="https://cdn.simpleicons.org/codeigniter/EE4623" alt="CodeIgniter" />
+                    CodeIgniter 4
+                  </li>
+                  <li>
+                    <img src="https://cdn.simpleicons.org/php/777BB4" alt="PHP" />
+                    PHP
+                  </li>
+                  <li>
+                    <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" />
+                    MySQL
+                  </li>
+                  <li>
+                    <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" />
+                    JavaScript
+                  </li>
+                  <li>
+                    <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" />
+                    Docker
+                  </li>
+                </ul>
+              </div>
+
+              <div class="portfolio-description">
+                <h2>Technical Features</h2>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <h4>Back End</h4>
+                    <ul>
+                      <li><strong>CodeIgniter 4 / PHP 8</strong> - explicit routing, thin controllers</li>
+                      <li><strong>Service layer</strong> - business rules kept out of controllers</li>
+                      <li><strong>MySQL</strong> - migrations, soft deletes and entities</li>
+                      <li>
+                        <strong>Three access layers</strong> - session login for staff,
+                        token auth for the API, per-store keys for public storefronts
+                      </li>
+                      <li><strong>Queued email</strong> - sent by a CLI worker, not inline</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Integrations</h4>
+                    <ul>
+                      <li><strong>Twilio</strong> - SMS and WhatsApp to customers</li>
+                      <li><strong>PrintNode</strong> - fax and print to each store's machine</li>
+                      <li><strong>AI document reading</strong> - Gemini extracts order details from scanned invoices</li>
+                      <li><strong>Network scanners</strong> - a small per-store agent feeds scans in</li>
+                      <li><strong>Telegram</strong> - live alerts for new activity and inquiries</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h4 class="mt-4">What It Does</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <ul>
+                      <li>
+                        <i class="bi bi-check-circle"></i>
+                        <strong>Orders from scans:</strong> scan an invoice, review the
+                        extracted draft, confirm the sale
+                      </li>
+                      <li>
+                        <i class="bi bi-check-circle"></i>
+                        <strong>Payments &amp; status:</strong> record payments and move
+                        each order through a five-step tracker
+                      </li>
+                      <li>
+                        <i class="bi bi-check-circle"></i>
+                        <strong>Deliveries &amp; routes:</strong> 14-day capacity by
+                        zone, daily stop lists and an approval step
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul>
+                      <li>
+                        <i class="bi bi-check-circle"></i>
+                        <strong>Message Centre:</strong> automatic order texts plus a
+                        chat view for SMS and WhatsApp replies
+                      </li>
+                      <li>
+                        <i class="bi bi-check-circle"></i>
+                        <strong>Sales floor mode:</strong> a kiosk screen for reps to
+                        log sales and see their standing
+                      </li>
+                      <li>
+                        <i class="bi bi-check-circle"></i>
+                        <strong>Roles:</strong> admin, manager, sales, delivery and
+                        warehouse accounts, each locked to its own screens
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h4 class="mt-4">Development Approach</h4>
+                <p>
+                  I built it as one application with clear boundaries: controllers
+                  only orchestrate, services hold the business rules, and custom
+                  validators guard every form. Routes are listed explicitly so
+                  nothing is exposed by accident, and an activity log records
+                  who did what for every important change. Long-running work such
+                  as email, fax and scanning runs through queues and CLI workers
+                  so the screens stay fast.
+                </p>
+                <p class="small text-muted mb-0">
+                  Screenshots use demo data. Customer names, contact details,
+                  addresses, scanned documents, staff photos and financial totals
+                  are blurred.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 pd-side">
+              <div class="portfolio-info">
+                <h3>Project Information</h3>
+                <ul>
+                  <li><strong>Category</strong>: Web App &mdash; Multi-tenant Back Office &amp; API</li>
+                  <li><strong>Client</strong>: Smith Group Marketing</li>
+                  <li><strong>Project date</strong>: 2026</li>
+                  <li><strong>Platform</strong>: Web (desktop &amp; tablet kiosk)</li>
+                  <li><strong>Stack</strong>: CodeIgniter 4, PHP, MySQL, Docker</li>
+                  <li><strong>Access</strong>: Private - internal tool, no public demo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Portfolio Details Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Gregory Peter Yanoc</span></strong>
+        </div>
+      </div>
+    </footer>
+    <!-- End  Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      aria-label="Back to top"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      // Load header component
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          const scripts = document
+            .getElementById("header-placeholder")
+            .querySelectorAll("script");
+          scripts.forEach((script) => {
+            if (script.src) {
+              const newScript = document.createElement("script");
+              newScript.src = script.src;
+              document.head.appendChild(newScript);
+            } else {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.head.appendChild(newScript);
+            }
+          });
+        })
+        .catch((error) => console.error("Error loading header:", error));
+    </script>
+  </body>
+</html>
