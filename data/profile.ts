@@ -24,6 +24,10 @@ export const services = [
     desc: "Email campaign development, marketing automation and Oracle Eloqua integration for effective customer communication.",
   },
   {
+    title: "AI-Assisted Development & Automation",
+    desc: "I use **Claude Code** for coding, the software development life cycle and other automation, and **Grok Bot** for other automations.",
+  },
+  {
     title: "Web Designing",
     desc: "Visually appealing, user-friendly designs using Figma for prototyping and Webflow for seamless design-to-code delivery.",
   },
@@ -75,4 +79,5 @@ export const topics = [
   "typescript",
   "webflow",
   "claude",
+  "grok",
 ];

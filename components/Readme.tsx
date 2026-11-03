@@ -19,7 +19,10 @@ export default function Readme() {
           <li>Front end: Angular, React, Vue, TypeScript</li>
           <li>Email marketing automation with Oracle Eloqua</li>
           <li>
-            Currently using <b className="cc">Claude Code</b>
+            Using <b className="cc">Claude Code</b> for coding, the software development life cycle and other automation
+          </li>
+          <li>
+            Using <b className="em">Grok Bot</b> for other automations
           </li>
         </ul>
       </div>
