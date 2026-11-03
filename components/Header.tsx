@@ -5,14 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
-import { Menu, Repo, Search } from "./Icons";
-
-const links = [
-  { href: "/#projects", label: "Work" },
-  { href: "/#services", label: "Services" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#contact", label: "Contact" },
-];
+import { Repo, Search } from "./Icons";
 
 type Hit = { slug: string; title: string; kind: string };
 
@@ -55,7 +48,6 @@ export default function Header() {
   const listId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -90,7 +82,6 @@ export default function Header() {
   useEffect(() => {
     setOpen(false);
     setQuery("");
-    setMenuOpen(false);
   }, [pathname]);
 
   const go = (slug: string) => {
@@ -192,24 +183,6 @@ export default function Header() {
           </div>
         )}
       </div>
-
-      <nav className="bar-nav" aria-label="Primary">
-        {links.map((l) => (
-          <Link key={l.href} href={l.href}>
-            {l.label}
-          </Link>
-        ))}
-      </nav>
-      <button type="button" className="menu-btn" aria-label="Menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
-        <Menu />
-      </button>
-      <nav className={`mobile-nav${menuOpen ? " open" : ""}`} aria-label="Mobile">
-        {links.map((l) => (
-          <Link key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>
-            {l.label}
-          </Link>
-        ))}
-      </nav>
     </header>
   );
 }
