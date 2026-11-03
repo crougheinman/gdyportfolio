@@ -10,10 +10,15 @@ const initial: ContactState = { status: "idle", message: "" };
 export default function Contact() {
   const [state, action, pending] = useActionState(sendContact, initial);
   const [referrer, setReferrer] = useState("");
+  // When the form appeared, so the server can drop submissions that are impossibly fast (bots).
+  const [ts, setTs] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
   const alertRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => setReferrer(document.referrer), []);
+  useEffect(() => {
+    setReferrer(document.referrer);
+    setTs(String(Date.now()));
+  }, []);
 
   // Clear the form only after a successful send, so nothing is lost on an error.
   // Move focus to the result so screen-reader and keyboard users hear it.
@@ -49,6 +54,7 @@ export default function Contact() {
             <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
           </div>
           <input type="hidden" name="referrer" value={referrer} />
+          <input type="hidden" name="ts" value={ts} />
 
           {state.status !== "idle" && (
             <div

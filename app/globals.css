@@ -39,10 +39,6 @@ img { max-width: 100%; }
 .search input { flex: 1; min-width: 0; height: 100%; background: transparent; border: 0; color: var(--tx); font: 13px var(--font-body); outline: none; }
 .search:focus-within { border-color: var(--lk); }
 .search kbd { border: 1px solid var(--bd); border-radius: 4px; padding: 0 5px; font: 12px var(--font-mono); }
-.bar-nav { margin-left: auto; display: flex; gap: 22px; font-weight: 500; }
-.bar-nav a { color: var(--tx); }
-.menu-btn { display: none; margin-left: auto; width: 40px; height: 40px; border: 1px solid var(--bd); border-radius: 6px; background: transparent; color: var(--tx); align-items: center; justify-content: center; cursor: pointer; }
-.mobile-nav { display: none; }
 
 /* ---------- search suggestions (GitHub-style dropdown) ---------- */
 .sd { position: absolute; top: calc(100% + 6px); left: 0; width: 440px; max-width: calc(100vw - 32px); background: var(--bar); border: 1px solid var(--bd); border-radius: 12px; box-shadow: 0 8px 24px rgba(1, 4, 9, 0.85); padding: 8px; z-index: 50; }
@@ -255,11 +251,7 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 /* ---------- mobile ---------- */
 @media (max-width: 720px) {
   .bar { min-height: 56px; padding: 0 16px; gap: 12px; flex-wrap: wrap; }
-  .search-wrap, .bar-nav { display: none; }
-  .menu-btn { display: flex; }
-  .mobile-nav { display: none; width: 100%; flex-direction: column; padding: 8px 0 12px; border-top: 1px solid var(--bd); }
-  .mobile-nav.open { display: flex; }
-  .mobile-nav a { color: var(--tx); padding: 10px 0; }
+  .search-wrap { display: none; }
   .wrap { flex-direction: column; align-items: stretch; padding: 20px 16px 32px; gap: 20px; }
   .side, .aside { width: 100%; }
   .aside { order: -1; }

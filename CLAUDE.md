@@ -22,6 +22,10 @@
 > - Testimonials: add quotes to `data/testimonials.ts`; the section renders nothing while the list is empty.
 > - Section order is set in `app/page.tsx`; all styling is in `app/globals.css` (GitHub-profile look, teal
 >   `#008184` accent). Old/merged URLs are 301-redirected in `next.config.mjs`.
+> - Contact form (`app/actions.ts`): saves to Supabase table `contact_messages` (SQL in
+>   `supabase/contact_messages.sql`) and sends a Telegram bot message; if both fail or are not configured it falls
+>   back to the original Google Apps Script/Sheet. Env vars are listed in `.env.example` (set them in Vercel).
+>   Spam traps: honeypot field, a minimum fill time, and a best-effort per-IP limit.
 > - Content rules: no metrics, client counts or client names beyond what is already public; no resume or
 >   booking links.
 
