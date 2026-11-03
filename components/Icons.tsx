@@ -23,3 +23,5 @@ export const Book = (p: P) =>
 export const Lines = (p: P) => svg(p.size ?? 14, p, <path d="M4 6h16M4 12h16M4 18h10" />);
 export const Check = (p: P) => svg(p.size ?? 16, p, <path d="M5 12l5 5 9-10" />);
 export const Search = (p: P) => svg(p.size ?? 14, p, <><circle cx="11" cy="11" r="6" /><path d="M20 20l-4.5-4.5" /></>);
+
+export const ArrowUpRight = (p: P) => svg(p.size ?? 16, p, <path d="M7 17L17 7M8 7h9v9" />);

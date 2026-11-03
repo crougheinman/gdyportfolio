@@ -1,13 +1,16 @@
 import Contact from "@/components/Contact";
+import Flagship from "@/components/Flagship";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import HowIUseAI from "@/components/HowIUseAI";
 import Projects from "@/components/Projects";
-import Readme from "@/components/Readme";
 import Services from "@/components/Services";
 import Sidebar from "@/components/Sidebar";
+import Skills from "@/components/Skills";
 import Tabs from "@/components/Tabs";
-import { services, skillGroups } from "@/data/profile";
-import { projects } from "@/data/projects";
+import Testimonials from "@/components/Testimonials";
+import { skillGroups } from "@/data/profile";
 import { site } from "@/data/site";
 
 const jsonLd = [
@@ -17,21 +20,24 @@ const jsonLd = [
     name: site.name,
     url: site.url,
     email: site.email,
-    jobTitle: "Full-Stack Web Developer",
+    jobTitle: "Senior Full-Stack Engineer",
     sameAs: [site.linkedin, site.github],
-    knowsAbout: skillGroups.flatMap((g) => g.items),
+    knowsAbout: skillGroups.flatMap((g) => g.items.map((i) => i.replace(/ · .*$/, ""))),
   },
   { "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: site.url },
 ];
 
 const tabs = [
   { id: "overview", label: "Overview", icon: "book" as const },
-  { id: "projects", label: "Projects", count: projects.length, icon: "repo" as const },
-  { id: "services", label: "Services", count: services.length },
+  { id: "projects", label: "Work", icon: "repo" as const },
+  { id: "services", label: "Services" },
+  { id: "ai", label: "How I use AI" },
   { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];
 
+// Section order: Hero → Flagship case study → Selected work → Services → How I use AI
+// → Testimonials → Skills & certifications → Contact.
 export default function Home() {
   return (
     <>
@@ -41,9 +47,13 @@ export default function Home() {
         <Sidebar />
         <main>
           <Tabs tabs={tabs} />
-          <Readme />
+          <Hero />
+          <Flagship />
           <Projects />
           <Services />
+          <HowIUseAI />
+          <Testimonials />
+          <Skills />
           <Contact />
         </main>
       </div>

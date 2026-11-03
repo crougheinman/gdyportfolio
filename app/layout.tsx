@@ -10,7 +10,7 @@ const ogImage = { ...site.ogImage, alt: site.title };
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: site.title, template: `%s | ${site.name}` },
+  title: { default: site.title, template: `%s — ${site.name}` },
   description: site.description,
   keywords: [...site.keywords],
   authors: [{ name: site.name }],

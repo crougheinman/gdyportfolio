@@ -1,22 +1,6 @@
 import { services } from "@/data/profile";
 import { Check } from "./Icons";
-
-/** Renders `**bold**` segments; brand names get their own emphasis. */
-function Rich({ text }: { text: string }) {
-  return (
-    <>
-      {text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
-        i % 2 === 1 ? (
-          <b key={i} className={part === "Claude Code" ? "cc" : "em"}>
-            {part}
-          </b>
-        ) : (
-          part
-        ),
-      )}
-    </>
-  );
-}
+import Rich from "./Rich";
 
 export default function Services() {
   return (
@@ -30,7 +14,9 @@ export default function Services() {
             <Check />
             <div>
               <h3>{s.title}</h3>
-              <p><Rich text={s.desc} /></p>
+              <p>
+                <Rich text={s.desc} />
+              </p>
             </div>
           </div>
         ))}

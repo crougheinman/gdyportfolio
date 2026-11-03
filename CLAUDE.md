@@ -5,18 +5,25 @@
 
 ---
 
-> **Branch `rework` = Next.js rewrite.** On this branch the site is also scaffolded as a **Next.js 15 (App Router,
-> TypeScript)** app at the repo root: `app/` (pages, server action, sitemap/robots), `components/`, `data/`
-> (projects, profile, `case-studies.json` extracted from the old detail pages), `public/` (images, favicon).
+> **Branch `rework` = Next.js rewrite.** On this branch the site is a **Next.js 15 (App Router, TypeScript)** app at
+> the repo root: `app/` (pages, contact server action, sitemap/robots), `components/`, `data/`, `public/`.
 > Run `npm install && npm run dev` (http://localhost:3000), `npm run build`, `npm run lint` (tsc).
 > The legacy static files (`index.html`, `*-portfolio*.html`, `assets/`, `header.html`) are **left in place and are
-> not used by Next.js** — delete them once the switch-over is done. Sections 2–10 below describe the legacy static
-> site. For the Next.js version: edit projects in `data/projects.ts`, skills/services/certs/topic tags in
-> `data/profile.ts`, profile text, handle and contact destination in `data/site.ts` (`contactScriptUrl`, used by the
-> server action in `app/actions.ts`). The design is GitHub-profile style (dark palette, teal `#008184` accent): the
-> home page is a profile sidebar + README + project "repo" cards, `/work/[slug]` is a repo-style case study, and
-> all styling lives in `app/globals.css`. The header search filters the project cards (and `/?q=` deep-links).
-> `vercel.json` pins the framework to Next.js so the legacy static files in the root are never served.
+> not used by Next.js** (`vercel.json` pins the framework to Next.js) — delete them after the switch-over.
+> Sections 2–10 below describe the legacy static site.
+>
+> **Editing the Next.js site**
+> - Hero/About copy: `components/Hero.tsx`. Profile text, handle, meta title/description/keywords, contact
+>   destination: `data/site.ts` (`contactScriptUrl`, used by the server action in `app/actions.ts`).
+> - Projects and their case-study content (Role, Problem, What I built, Stack, Links): `data/projects.ts`
+>   (first entry is the flagship). Screenshots live in `data/gallery.json` + `public/img/portfolio/`.
+> - Services, "How I use AI", skills, certifications, sidebar tech tags: `data/profile.ts`. `**bold**` markers in
+>   those strings are rendered by `components/Rich.tsx` ("Claude Code" gets Claude's clay colour).
+> - Testimonials: add quotes to `data/testimonials.ts`; the section renders nothing while the list is empty.
+> - Section order is set in `app/page.tsx`; all styling is in `app/globals.css` (GitHub-profile look, teal
+>   `#008184` accent). Old/merged URLs are 301-redirected in `next.config.mjs`.
+> - Content rules: no metrics, client counts or client names beyond what is already public; no resume or
+>   booking links.
 
 ---
 
@@ -86,7 +93,6 @@ porti/
 │   ├── cb-admin-portfolio-details.html# Carbnb Admin (CodeIgniter/PHP)
 │   ├── cb-loansys-portfolio-details.html # YL Loan System (CodeIgniter/PHP)
 │   ├── peb-portfolio-details.html     # Personal Expense Budgeting (Angular/Firebase)
-│   ├── watchy-portfolio-details.html  # Watchy streaming app (React/TS/Vite/Capacitor/Supabase)
 │   └── entity-portfolio-details.html  # Entity Duel / LeafWar — React trading card game (React/Vite/Zustand/Supabase)
 │
 ├── about.html, inner-page.html, sample-page.html  # UNUSED template leftovers (marked noindex)

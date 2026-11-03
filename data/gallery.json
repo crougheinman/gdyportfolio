@@ -1,0 +1,262 @@
+{
+  "smadmin": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-smadmin.webp",
+      "alt": "Smith Group Admin dashboard with today's orders, delivery capacity and drafts to review"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-smadmin.webp",
+      "alt": "Smith Group Admin orders list with search, store, status and fulfillment filters"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-smadmin.webp",
+      "alt": "Smith Group Admin order details with line items, payments and a five-step status tracker"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-smadmin.webp",
+      "alt": "Smith Group Admin deliveries and routes board with delivery capacity by zone"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-5-smadmin.webp",
+      "alt": "Smith Group Admin Message Centre showing every automatic and manual SMS trigger"
+    }
+  ],
+  "m2g": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-m2g.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-m2g.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-m2g.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-m2g.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-5-m2g.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-6-m2g.webp",
+      "alt": ""
+    }
+  ],
+  "copa": [
+    {
+      "src": "/img/portfolio/portfolio-13.webp",
+      "alt": "Copa Mattress and Furniture website"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-1-copa.webp",
+      "alt": "Copa Mattress and Furniture website"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-copa.webp",
+      "alt": "Copa Mattress and Furniture website"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-copa.webp",
+      "alt": "Copa Mattress and Furniture website"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-copa.webp",
+      "alt": "Copa Mattress and Furniture website"
+    }
+  ],
+  "rd": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-rd.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-rd.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-rd.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-rd.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-5-rd.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-6-rd.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-7-rd.webp",
+      "alt": ""
+    }
+  ],
+  "gs": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-get-sendy.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-get-sendy.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-get-sendy.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-get-sendy.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-5-get-sendy.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-6-get-sendy.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-7-get-sendy.webp",
+      "alt": ""
+    }
+  ],
+  "cb": [
+    {
+      "src": "/img/portfolio/portfolio-1.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-1.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3.webp",
+      "alt": ""
+    }
+  ],
+  "cbadmin": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-cbadmin.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-cbadmin.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-cbadmin.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-cbadmin.webp",
+      "alt": ""
+    }
+  ],
+  "loansys": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-5-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-6-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-7-loansys.webp",
+      "alt": ""
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-8-loansys.webp",
+      "alt": ""
+    }
+  ],
+  "peb": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-peb.webp",
+      "alt": "PEB dashboard statistics"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-peb.webp",
+      "alt": "PEB expenses"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-peb.webp",
+      "alt": "PEB receipt scanner"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-peb.webp",
+      "alt": "PEB bills"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-5-peb.webp",
+      "alt": "PEB inventory"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-6-peb.webp",
+      "alt": "PEB voice and AI insights"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-7-peb.webp",
+      "alt": "PEB settings"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-8-peb.webp",
+      "alt": "PEB screen"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-9-peb.webp",
+      "alt": "PEB screen"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-10-peb.webp",
+      "alt": "PEB screen"
+    }
+  ],
+  "entity": [
+    {
+      "src": "/img/portfolio/portfolio-details-1-entity.webp",
+      "alt": "Entity Duel main menu - Play vs AI, Hotseat, Online PvP and Rulebook"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-2-entity.webp",
+      "alt": "Entity Duel deck selection with six decks and archetypes"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-3-entity.webp",
+      "alt": "Entity Duel gameplay board with hand, mana, life totals and turn phases"
+    },
+    {
+      "src": "/img/portfolio/portfolio-details-4-entity.webp",
+      "alt": "Entity Duel in-app rulebook explaining goal, mana, card types and combat"
+    }
+  ]
+}

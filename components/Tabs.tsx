@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Book, Repo } from "./Icons";
 
-type Tab = { id: string; label: string; count?: number; icon?: "book" | "repo" };
+type Tab = { id: string; label: string; icon?: "book" | "repo" };
 
 export default function Tabs({ tabs }: { tabs: Tab[] }) {
   const [active, setActive] = useState(tabs[0].id);
@@ -26,7 +26,6 @@ export default function Tabs({ tabs }: { tabs: Tab[] }) {
           {t.icon === "book" && <Book />}
           {t.icon === "repo" && <Repo />}
           {t.label}
-          {t.count !== undefined && <span className="cnt">{t.count}</span>}
         </a>
       ))}
     </nav>
