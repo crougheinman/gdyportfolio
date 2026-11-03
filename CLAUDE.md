@@ -5,6 +5,17 @@
 
 ---
 
+> **Branch `rework` = Next.js rewrite.** On this branch the site is also scaffolded as a **Next.js 15 (App Router,
+> TypeScript)** app at the repo root: `app/` (pages, server action, sitemap/robots), `components/`, `data/`
+> (projects, profile, `case-studies.json` extracted from the old detail pages), `public/` (images, favicon).
+> Run `npm install && npm run dev` (http://localhost:3000), `npm run build`, `npm run lint` (tsc).
+> The legacy static files (`index.html`, `*-portfolio*.html`, `assets/`, `header.html`) are **left in place and are
+> not used by Next.js** — delete them once the switch-over is done. Sections 2–10 below describe the legacy static
+> site. For the Next.js version: edit projects in `data/projects.ts`, skills/services/certs in `data/profile.ts`,
+> contact destination in `data/site.ts` (`contactScriptUrl`, used by the server action in `app/actions.ts`).
+
+---
+
 ## 1. TL;DR
 
 **porti** is the source for **Gregory Peter Yanoc's personal developer portfolio** — a **static, build-less
