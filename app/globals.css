@@ -82,8 +82,7 @@ main { flex: 1; min-width: 0; }
 .av img { object-fit: cover; object-position: top; }
 .nm { font-size: 26px; font-weight: 600; line-height: 1.25; margin-top: 16px; }
 .un { font-size: 20px; color: var(--mu); font-weight: 300; line-height: 1.3; }
-.status { display: flex; gap: 10px; align-items: center; margin-top: 16px; padding: 8px 12px; border: 1px solid var(--bd); border-radius: 999px; background: var(--bar); font-size: 14px; width: fit-content; max-width: 100%; }
-.bio { margin: 12px 0 16px; font-size: 16px; }
+.bio { margin: 16px 0; font-size: 16px; }
 .side .btn { width: 100%; height: 34px; }
 .links { display: flex; flex-direction: column; gap: 8px; margin: 16px 0 20px; font-size: 14px; }
 .links div { display: flex; gap: 8px; align-items: center; min-width: 0; }

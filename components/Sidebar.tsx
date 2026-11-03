@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { certifications, topics } from "@/data/profile";
 import { site } from "@/data/site";
-import { Code, LinkIcon, Mail, Medal, Sparkle } from "./Icons";
+import { Code, LinkIcon, Mail, Medal } from "./Icons";
 
 export default function Sidebar() {
   return (
@@ -14,13 +14,6 @@ export default function Sidebar() {
           <h1 className="nm">{site.name}</h1>
           <div className="un">{site.username}</div>
         </div>
-      </div>
-
-      <div className="status">
-        <Sparkle style={{ color: "var(--lk)" }} />
-        <span>
-          Currently using <b className="cc">Claude Code</b>
-        </span>
       </div>
 
       <p className="bio">{site.bio}</p>

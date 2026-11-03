@@ -16,10 +16,6 @@ export const services = [
     desc: "MySQL architecture, optimization and management — data modeling, query optimization and security best practices.",
   },
   {
-    title: "Firebase Integration",
-    desc: "Authentication, real-time database, cloud functions and hosting integration using the Firebase platform.",
-  },
-  {
     title: "Email Marketing & Automation",
     desc: "Email campaign development, marketing automation and Oracle Eloqua integration for effective customer communication.",
   },
