@@ -1,10 +1,16 @@
 export const site = {
   name: "Gregory Peter Yanoc",
   shortName: "Gregory Yanoc",
+  /** GitHub-style handle shown under the name. */
+  username: "crougheinman",
+  tagline: "Full-stack web developer",
+  bio: "Full-stack web developer. PHP and CodeIgniter on the back end; Angular, React and Vue on the front.",
   url: "https://gdyportfolio.vercel.app",
   email: "gregorypeteryanoc.gpy@gmail.com",
   linkedin: "https://www.linkedin.com/in/gregory-peter-yanoc-a2166a187/",
+  linkedinLabel: "linkedin.com/in/gregory-peter-yanoc",
   github: "https://github.com/crougheinman",
+  githubLabel: "github.com/crougheinman",
   title: "Gregory Peter Yanoc | Full-Stack Web Developer Portfolio",
   description:
     "Portfolio of Gregory Peter Yanoc, a full-stack web developer skilled in Angular, Vue, React, PHP/CodeIgniter, Node.js and Firebase. See my web and e-commerce projects.",

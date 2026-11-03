@@ -61,3 +61,18 @@ export const certifications = [
     href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=697923E2EFB54BCCBB53AABD63DA378BFA1027E69FD29F3E58A2331A84A62DAC",
   },
 ];
+
+/** Tags under "Works with" in the profile sidebar. */
+export const topics = [
+  "php",
+  "codeigniter",
+  "mysql",
+  "nodejs",
+  "firebase",
+  "angular",
+  "react",
+  "vue",
+  "typescript",
+  "webflow",
+  "claude",
+];

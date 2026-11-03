@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ArrowRight } from "@/components/Icons";
-import Nav from "@/components/Nav";
-import { getCaseStudy, getProject, projects, thumbSrc } from "@/data/projects";
+import Header from "@/components/Header";
+import { Repo } from "@/components/Icons";
+import Tabs from "@/components/Tabs";
+import { getCaseStudy, getProject, ownerLabel, projects, thumbSrc } from "@/data/projects";
 import { site } from "@/data/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -48,94 +49,149 @@ export default async function CaseStudyPage({ params }: Props) {
   const hero = study.images[0];
   const rest = study.images.slice(1);
 
+  const plain = study.info.filter((r) => !r.href);
+  const linked = study.info.filter((r) => r.href);
+  const source = linked.find((r) => /github\.com/.test(r.href!))?.href;
+  const live = linked.find((r) => r.label === "Live Demo")?.href ?? linked.find((r) => !/github\.com/.test(r.href!) && /project url/i.test(r.label))?.href;
+
+  const tabs = [
+    { id: "readme", label: "Overview" },
+    ...(rest.length ? [{ id: "screenshots", label: "Screenshots", count: study.images.length }] : []),
+  ];
+
+  const [first, ...otherBlocks] = study.blocks;
+  const firstNodes = first?.nodes ?? [];
+  const lead = firstNodes[0];
+  const afterLead = firstNodes.slice(1);
+
+  const renderNodes = (nodes: typeof firstNodes, keyPrefix: string) =>
+    nodes.map((n, j) =>
+      n.t === "p" ? (
+        <p key={`${keyPrefix}${j}`}>{n.text}</p>
+      ) : n.t === "h" ? (
+        <h3 key={`${keyPrefix}${j}`}>{n.text}</h3>
+      ) : (
+        <ul key={`${keyPrefix}${j}`}>
+          {n.items.map((it, k) => (
+            <li key={k}>{it}</li>
+          ))}
+        </ul>
+      ),
+    );
+
   return (
     <>
-      <Nav />
-      <main className="wrap" style={{ paddingTop: 32, paddingBottom: 96 }}>
-        <Link href="/#work" className="back-link">
-          <ArrowLeft /> Back to all work
-        </Link>
-
-        <div className="cs-head">
-          <div className="eyebrow">Case study · {project.kind}</div>
-          <h1 className="cs-title">{project.title}</h1>
-          {study.description && <p className="cs-lead">{study.description}</p>}
-        </div>
-
-        {hero && (
-          <div className="cs-hero">
-            <Image src={hero.src} alt={hero.alt} fill priority sizes="(max-width: 1200px) 100vw, 1136px" />
-          </div>
-        )}
-
-        <div className="cs-body">
-          <div className="cs-main">
-            {study.blocks.map((b, i) => (
-              <section key={i} className="cs-block">
-                {b.heading && <h2>{b.heading}</h2>}
-                {b.nodes.map((n, j) =>
-                  n.t === "p" ? (
-                    <p key={j}>{n.text}</p>
-                  ) : n.t === "h" ? (
-                    <h3 key={j}>{n.text}</h3>
-                  ) : (
-                    <ul key={j}>
-                      {n.items.map((it, k) => (
-                        <li key={k}>{it}</li>
-                      ))}
-                    </ul>
-                  ),
-                )}
-              </section>
-            ))}
-          </div>
-
-          <aside className="cs-side" aria-label="Project information">
-            {study.info.map((row) => (
-              <div key={row.label}>
-                <div className="info-label">{row.label}</div>
-                <div className="info-value">
-                  {row.href ? (
-                    <a href={row.href} target="_blank" rel="noopener noreferrer">
-                      {row.value}
-                    </a>
-                  ) : (
-                    row.value
-                  )}
-                </div>
-              </div>
-            ))}
-          </aside>
-        </div>
-
-        {rest.length > 0 && (
-          <div className="gallery">
-            {rest.map((img) => (
-              <figure key={img.src}>
-                <div className="shot">
-                  <Image src={img.src} alt={img.alt} fill sizes="(max-width: 720px) 100vw, 380px" />
-                </div>
-                {img.alt && <figcaption>{img.alt}</figcaption>}
-              </figure>
-            ))}
-          </div>
-        )}
-
-        <Link href={`/work/${next.slug}`} className="next-card">
-          <div>
-            <div className="eyebrow" style={{ marginBottom: 10 }}>Next project</div>
-            <div className="next-title">{next.title}</div>
-          </div>
-          <div className="next-right">
-            <div className="next-thumb">
-              <Image src={thumbSrc(next)} alt="" fill sizes="180px" />
+      <Header />
+      <div className="head">
+        <div className="head-in">
+          <div className="title">
+            <Repo size={20} />
+            <Link href="/">{site.username}</Link>
+            <span className="sl">/</span>
+            <b>
+              <Link href={`/work/${slug}`}>{project.repo}</Link>
+            </b>
+            <span className="pill">{ownerLabel(slug) === "Personal" ? "Personal project" : "Client project"}</span>
+            <div className="acts">
+              {source && (
+                <a className="btn" href={source} target="_blank" rel="noopener noreferrer">
+                  Source
+                </a>
+              )}
+              {live && (
+                <a className="btn btn-pri" href={live} target="_blank" rel="noopener noreferrer">
+                  Live demo
+                </a>
+              )}
             </div>
-            <span className="next-go">
-              <ArrowRight size={20} />
-            </span>
           </div>
-        </Link>
-      </main>
+          <Tabs tabs={tabs} />
+        </div>
+      </div>
+
+      <div className="wrap">
+        <main>
+          <section id="readme" className="box" aria-label="README">
+            <div className="hd">README.md</div>
+            <div className="md">
+              <h1>{project.title}</h1>
+              {lead && renderNodes([lead], "lead")}
+              {hero && (
+                <div className="shot">
+                  <Image src={hero.src} alt={hero.alt} fill priority sizes="(max-width: 1344px) 100vw, 960px" />
+                </div>
+              )}
+              {renderNodes(afterLead, "a")}
+              {otherBlocks.map((b, i) => (
+                <section key={i}>
+                  {b.heading && <h2>{b.heading}</h2>}
+                  {renderNodes(b.nodes, `b${i}-`)}
+                </section>
+              ))}
+            </div>
+          </section>
+
+          {rest.length > 0 && (
+            <section id="screenshots" className="box section" aria-label="Screenshots">
+              <div className="hd">Screenshots</div>
+              <div className="gallery">
+                {rest.map((img) => (
+                  <figure key={img.src}>
+                    <div className="g">
+                      <Image src={img.src} alt={img.alt} fill sizes="(max-width: 720px) 100vw, 320px" />
+                    </div>
+                    {img.alt && <figcaption>{img.alt}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <Link href={`/work/${next.slug}`} className="next">
+            <span>
+              <small>Next project</small>
+              <strong>{next.repo}</strong>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </main>
+
+        <aside className="aside" aria-label="Project information">
+          <div className="blk">
+            <h3>About</h3>
+            <p className="abt">{project.blurb}</p>
+            <div className="topics">
+              {project.tags.map((t) => (
+                <span key={t} className="topic">
+                  {t.toLowerCase()}
+                </span>
+              ))}
+            </div>
+          </div>
+          {plain.length > 0 && (
+            <div className="blk">
+              {plain.map((r) => (
+                <div key={r.label} className="row">
+                  <span>{r.label}</span>
+                  <b>{r.value}</b>
+                </div>
+              ))}
+            </div>
+          )}
+          {linked.length > 0 && (
+            <div className="blk">
+              <h3>Links</h3>
+              {linked.map((r) => (
+                <div key={r.label} className="row">
+                  <a href={r.href!} target="_blank" rel="noopener noreferrer">
+                    {r.label === "Project URL" ? r.value : r.label}
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
+        </aside>
+      </div>
       <Footer />
     </>
   );

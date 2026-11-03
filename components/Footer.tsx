@@ -2,7 +2,7 @@ import { site } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="wrap footer">
+    <footer className="footer">
       <span>
         © {new Date().getFullYear()} {site.name}
       </span>

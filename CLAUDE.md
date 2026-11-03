@@ -11,8 +11,12 @@
 > Run `npm install && npm run dev` (http://localhost:3000), `npm run build`, `npm run lint` (tsc).
 > The legacy static files (`index.html`, `*-portfolio*.html`, `assets/`, `header.html`) are **left in place and are
 > not used by Next.js** — delete them once the switch-over is done. Sections 2–10 below describe the legacy static
-> site. For the Next.js version: edit projects in `data/projects.ts`, skills/services/certs in `data/profile.ts`,
-> contact destination in `data/site.ts` (`contactScriptUrl`, used by the server action in `app/actions.ts`).
+> site. For the Next.js version: edit projects in `data/projects.ts`, skills/services/certs/topic tags in
+> `data/profile.ts`, profile text, handle and contact destination in `data/site.ts` (`contactScriptUrl`, used by the
+> server action in `app/actions.ts`). The design is GitHub-profile style (dark palette, teal `#008184` accent): the
+> home page is a profile sidebar + README + project "repo" cards, `/work/[slug]` is a repo-style case study, and
+> all styling lives in `app/globals.css`. The header search filters the project cards (and `/?q=` deep-links).
+> `vercel.json` pins the framework to Next.js so the legacy static files in the root are never served.
 
 ---
 
