@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { ArrowLeft, ArrowRight } from "@/components/Icons";
 import Nav from "@/components/Nav";
 import { getCaseStudy, getProject, projects, thumbSrc } from "@/data/projects";
+import { site } from "@/data/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,12 +19,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject(slug);
   const study = getCaseStudy(slug);
   if (!project || !study) return {};
-  const title = study.seoTitle.replace(/\s*\|\s*Gregory Peter Yanoc\s*$/, "");
+  const image = { url: study.images[0]?.src ?? thumbSrc(project), alt: study.seoTitle };
   return {
     title: { absolute: study.seoTitle },
     description: study.description,
     alternates: { canonical: `/work/${slug}` },
-    openGraph: { title, description: study.description, url: `/work/${slug}`, images: [{ url: thumbSrc(project) }] },
+    openGraph: {
+      type: "website",
+      url: `/work/${slug}`,
+      siteName: `${site.name} Portfolio`,
+      locale: "en_US",
+      title: study.seoTitle,
+      description: study.description,
+      images: [image],
+    },
+    twitter: { card: "summary_large_image", title: study.seoTitle, description: study.description, images: [image] },
   };
 }
 
