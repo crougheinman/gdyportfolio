@@ -21,6 +21,7 @@ const OK: ContactState = { status: "ok", message: "Message sent. Thank you, I'll
  *   3. Last resort, only if 1 and 2 both fail or are not configured:
  *      the original Google Apps Script -> Google Sheet.
  * The visitor sees success as soon as the message reached at least one of these.
+ * Spam defence, in order: honeypot, minimum fill time, field validation, per-IP limit, reCAPTCHA v3.
  */
 
 type Row = { name: string; email: string; subject: string; message: string; referrer: string };
@@ -94,6 +95,43 @@ async function saveToSheet(row: Row): Promise<boolean> {
   }
 }
 
+// reCAPTCHA v3 (see .env.example). Off until RECAPTCHA_SECRET_KEY is set, so nothing breaks before setup.
+type Verdict = "ok" | "missing" | "failed";
+
+async function verifyRecaptcha(token: string): Promise<Verdict> {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) return "ok";
+  if (!token) return "missing";
+  const minScore = Number(process.env.RECAPTCHA_MIN_SCORE ?? "0.5");
+  try {
+    const res = await fetch(process.env.RECAPTCHA_VERIFY_URL || "https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token }),
+      cache: "no-store",
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (!res.ok) {
+      // Google itself is having trouble: don't turn real people away because of it.
+      console.error(`[contact] reCAPTCHA verify unavailable: HTTP ${res.status}`);
+      return "ok";
+    }
+    const data = (await res.json()) as { success?: boolean; score?: number; action?: string; "error-codes"?: string[] };
+    if (!data.success || data.action !== "contact") {
+      console.error("[contact] reCAPTCHA rejected token:", data["error-codes"]?.join(",") ?? `action=${data.action}`);
+      return "failed";
+    }
+    if ((data.score ?? 0) < minScore) {
+      console.error(`[contact] reCAPTCHA low score: ${data.score}`);
+      return "failed";
+    }
+    return "ok";
+  } catch (err) {
+    console.error("[contact] reCAPTCHA verify error:", err instanceof Error ? err.message : err);
+    return "ok";
+  }
+}
+
 // Best-effort per-IP limit (in memory, so it applies per server instance). Keeps a bot from flooding Telegram.
 const hits = new Map<string, number[]>();
 function tooMany(ip: string): boolean {
@@ -130,6 +168,14 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
   const ip = (h.get("x-forwarded-for") ?? "unknown").split(",")[0].trim();
   if (tooMany(ip)) {
     return { status: "error", message: `You've sent several messages in a short time. Please wait a few minutes, or email me directly at ${site.email}.` };
+  }
+
+  const human = await verifyRecaptcha(String(formData.get("recaptcha") ?? ""));
+  if (human === "missing") {
+    return { status: "error", message: `The spam check didn't run. If you use a content blocker, please turn it off for this page, or email me directly at ${site.email}.` };
+  }
+  if (human === "failed") {
+    return { status: "error", message: `The spam check couldn't confirm you're human. Please try again, or email me directly at ${site.email}.` };
   }
 
   const row: Row = { name, email, subject: cap(formData.get("subject"), 300), message, referrer: cap(formData.get("referrer"), 500) };

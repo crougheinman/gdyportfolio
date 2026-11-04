@@ -54,7 +54,8 @@ export default function Home() {
           <HowIUseAI />
           <Testimonials />
           <Skills />
-          <Contact />
+          {/* Public site key; read on the server so the variable does not need a NEXT_PUBLIC_ prefix. */}
+          <Contact recaptchaSiteKey={process.env.PUBLIC_RECAPTCHA_SITE_KEY ?? ""} />
         </main>
       </div>
       <Footer />

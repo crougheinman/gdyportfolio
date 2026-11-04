@@ -146,6 +146,9 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .form-note.ok { color: var(--lk); }
 .form-note.err { color: #ff9b9b; }
 .form .btn { align-self: flex-start; width: auto; }
+/* The reCAPTCHA badge is hidden; the attribution text under the form is what Google requires instead. */
+.grecaptcha-badge { visibility: hidden; }
+.recaptcha-note { font-size: 12px; color: var(--mu); margin: 0; line-height: 1.5; }
 
 /* ---------- footer ---------- */
 .footer { max-width: 1344px; margin: 0 auto; padding: 24px 32px 48px; border-top: 1px solid var(--bd); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--mu); }

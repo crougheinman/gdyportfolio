@@ -25,7 +25,8 @@
 > - Contact form (`app/actions.ts`): saves to Supabase table `contact_messages` (SQL in
 >   `supabase/contact_messages.sql`) and sends a Telegram bot message; if both fail or are not configured it falls
 >   back to the original Google Apps Script/Sheet. Env vars are listed in `.env.example` (set them in Vercel).
->   Spam traps: honeypot field, a minimum fill time, and a best-effort per-IP limit.
+>   Spam defence: honeypot field, a minimum fill time, a best-effort per-IP limit, and reCAPTCHA v3
+>   (`PUBLIC_RECAPTCHA_SITE_KEY` + `RECAPTCHA_SECRET_KEY`; off until the secret is set).
 > - Content rules: no metrics, client counts or client names beyond what is already public; no resume or
 >   booking links.
 
