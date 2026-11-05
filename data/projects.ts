@@ -3,7 +3,7 @@ import gallery from "./gallery.json";
 export type FilterId = "react" | "vue" | "angular" | "php" | "webflow";
 
 export type ProjectLink = { label: string; href: string; primary?: boolean };
-export type Shot = { src: string; alt: string };
+export type Shot = { src: string; alt: string; w?: number; h?: number };
 
 export type Project = {
   slug: string;
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     },
     seoDescription:
       "Case study: Smith Group CRM, a multi-tenant back-office system where sales, warehouse, delivery and management staff run orders, deliveries, customer messaging and paperwork scanning for a multi-store mattress and furniture retailer.",
-    gallery: ["smadmin"],
+    gallery: ["smadmin", "smadmin-promo"],
   },
   {
     slug: "mattress2go-copa",

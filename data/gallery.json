@@ -258,5 +258,67 @@
       "src": "/img/portfolio/portfolio-details-4-entity.webp",
       "alt": "Entity Duel in-app rulebook explaining goal, mana, card types and combat"
     }
+  ],
+  "smadmin-promo": [
+    {
+      "src": "/img/portfolio/smadmin-promo-messaging.webp",
+      "alt": "Messaging: texts and updates to customers from the order screen",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-inquiries.webp",
+      "alt": "Inquiries: one inbox for every enquiry",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-deliveries.webp",
+      "alt": "Deliveries: plan by zone, capacity and day",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-scanning.webp",
+      "alt": "Smart scanning: scan an invoice and the order builds itself",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-sales-floor.webp",
+      "alt": "Sales floor: fast, simple screens for sales staff",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-inventory.webp",
+      "alt": "Inventory (coming next): live stock by location, tied to every order",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-documents-fax.webp",
+      "alt": "Documents and fax: send paperwork in one click and track it",
+      "w": 1920,
+      "h": 1200
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-mobile-scanning.webp",
+      "alt": "Mobile app, smart scanning: paperwork becomes an order automatically",
+      "w": 923,
+      "h": 2000
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-mobile-deliveries.webp",
+      "alt": "Mobile app, deliveries: drivers update a stop with one tap",
+      "w": 923,
+      "h": 2000
+    },
+    {
+      "src": "/img/portfolio/smadmin-promo-mobile-sales-floor.webp",
+      "alt": "Mobile app, sales floor: start a sale or scan paperwork in seconds",
+      "w": 923,
+      "h": 2000
+    }
   ]
 }

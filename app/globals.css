@@ -175,6 +175,8 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .gallery figure { margin: 0; }
 .gallery .g { position: relative; aspect-ratio: 16 / 10; border: 1px solid var(--bd); border-radius: 6px; overflow: hidden; background: var(--bar); }
 .gallery img { object-fit: cover; object-position: top; }
+.gallery-sub { margin: 4px 16px 0; padding-top: 16px; border-top: 1px solid var(--bd); font: 12px var(--font-mono); color: var(--mu); letter-spacing: .06em; text-transform: uppercase; }
+.gallery.phones { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
 .gallery figcaption { font-size: 12px; color: var(--mu); margin-top: 6px; }
 .next { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; margin-top: 24px; border: 1px solid var(--bd); border-radius: 6px; color: var(--tx); }
 .next:hover { border-color: var(--mu); text-decoration: none; }
