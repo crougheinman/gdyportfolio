@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { filters, projects, thumbSrc } from "@/data/projects";
 import { Repo } from "./Icons";
+import ScrubbedStack from "./ScrubbedStack";
 
 export default function Projects() {
   const [active, setActive] = useState<string>("all");
@@ -40,13 +41,17 @@ export default function Projects() {
                   <span className="pill">{p.owner}</span>
                 </div>
                 <p>{p.blurb}</p>
-                <div className="card-m">
-                  <span>
-                    <i className="dot" style={{ background: p.langColor }} />
-                    {p.lang}
-                  </span>
-                  {stack && <span>{stack}</span>}
-                </div>
+                {p.scrubbed ? (
+                  <ScrubbedStack compact count={4} />
+                ) : (
+                  <div className="card-m">
+                    <span>
+                      <i className="dot" style={{ background: p.langColor }} />
+                      {p.lang}
+                    </span>
+                    {stack && <span>{stack}</span>}
+                  </div>
+                )}
               </div>
             </div>
           );
