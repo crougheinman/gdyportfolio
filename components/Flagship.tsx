@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { flagship, getGallery } from "@/data/projects";
 import { Repo } from "./Icons";
+import ScrubbedStack from "./ScrubbedStack";
 
 export default function Flagship() {
   const shot = getGallery(flagship)[0];
@@ -28,13 +29,17 @@ export default function Flagship() {
               <li key={b}>{b}</li>
             ))}
           </ul>
-          <div className="topics">
-            {flagship.stack.map((t) => (
-              <span key={t} className="topic">
-                {t.toLowerCase()}
-              </span>
-            ))}
-          </div>
+          {flagship.scrubbed ? (
+            <ScrubbedStack />
+          ) : (
+            <div className="topics">
+              {flagship.stack.map((t) => (
+                <span key={t} className="topic">
+                  {t.toLowerCase()}
+                </span>
+              ))}
+            </div>
+          )}
           <div className="flag-cta">
             <Link className="btn btn-pri" href={`/work/${flagship.slug}`}>
               Read the case study

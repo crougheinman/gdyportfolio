@@ -23,6 +23,13 @@ export type Project = {
   /** Short tags shown on cards. */
   tags: string[];
   featured?: boolean;
+  /** Hide the tech stack (blurred "Scrubbed" placeholder) to protect a client. Keep tech names out of all copy too. */
+  scrubbed?: boolean;
+  /** Optional extra case-study sections (used by the flagship). */
+  users?: string[];
+  featureGroups?: { title: string; points: string[] }[];
+  next?: { title: string; points: string[] };
+  principles?: string[];
   // ---- case-study content ----
   role: string;
   problem: string;
@@ -60,32 +67,98 @@ export const projects: Project[] = [
     repo: "smith-group-crm",
     kind: "Multi-tenant CRM",
     blurb:
-      "Lead engineer on a multi-tenant CRM that runs several furniture and mattress stores. Scanned invoices become orders, deliveries are routed automatically, and customers get Twilio SMS updates, all through one API that powers every storefront.",
+      "Lead engineer on a multi-tenant CRM that runs several furniture and mattress stores. Scanned invoices become orders, deliveries are routed automatically, and customers get automatic text updates, all through one API that powers every storefront.",
     owner: "Client",
-    lang: "PHP",
-    langColor: PHP,
+    lang: "",
+    langColor: "",
     thumb: "portfolio-details-1-smadmin",
-    cats: ["php"],
-    tags: ["CodeIgniter 4", "MySQL", "Docker", "Twilio"],
+    cats: [],
+    tags: [],
     featured: true,
+    scrubbed: true,
     role: "Lead engineer",
     problem:
-      "A group of mattress and furniture retailers needed one system to run several stores: turning scanned paper invoices into orders, scheduling deliveries and keeping customers informed, with each store's data kept separate.",
+      "A multi-store mattress and furniture retailer needed one place for sales, warehouse, delivery and management staff to run daily operations, from the first customer enquiry to the delivered order, with each store's data kept separate. It works on desktop, phones and tablets, and includes a mobile app connection.",
     built: [
-      "One multi-tenant CodeIgniter 4 application that serves every store, with each store's orders, staff, delivery zones and website kept isolated.",
-      "A REST API that powers every storefront, using token auth for apps and per-store keys for public sites.",
+      "One multi-tenant application that serves every store, with each store's orders, staff, delivery zones and website kept isolated.",
+      "A single API that powers every storefront, with separate access for staff apps and for each public site.",
       "Orders from scans: scan an invoice, review the AI-extracted draft, then confirm the sale.",
       "Payments, an order status tracker, and delivery scheduling by zone with an approval step.",
-      "Customer messaging through Twilio: automatic order texts plus a chat view for replies.",
+      "Customer messaging: automatic order texts plus a chat view for replies.",
       "Role-based screens for admin, manager, sales, delivery and warehouse staff, with an activity log of important changes.",
-      "Queued email, print and fax through PrintNode, and Telegram alerts for new activity.",
-      "Containerized with Docker and deployed on hardened, Cloudflare-fronted servers.",
+      "Queued email, print and fax, plus instant alerts for new activity.",
+      "Deployed on hardened, protected servers.",
     ],
-    stack: ["CodeIgniter 4", "PHP", "MySQL", "JavaScript", "Docker", "Twilio", "Cloudflare"],
+    users: [
+      "Administrators: full control over settings, staff, stores and integrations.",
+      "Managers: oversee orders, deliveries, approvals and reporting.",
+      "Sales staff: a simple sales-floor screen built for in-store kiosks and tablets.",
+      "Delivery coordinators: approve and schedule deliveries and handle problem cases.",
+      "Warehouse and driver staff: see only the stops and tasks that are relevant to them.",
+    ],
+    featureGroups: [
+      {
+        title: "Orders and payments",
+        points: [
+          "Orders created in store or from scanned paperwork, with a clear life cycle from draft to completed, cancelled or refunded.",
+          "Payments, receipts and documents recorded per order, with a full history of every change and issues flagged to management.",
+        ],
+      },
+      {
+        title: "AI-assisted paperwork scanning",
+        points: [
+          "Staff scan handwritten invoices and delivery sheets, and the system builds the customer, order, items and payment. Anything unclear is flagged for a person to review, and each store has its own scanning station.",
+        ],
+      },
+      {
+        title: "Products, brands and stores",
+        points: ["A catalogue with size variants, brands, images and promotions, plus store profiles, staff store coverage and price lookup on the sales floor."],
+      },
+      {
+        title: "Deliveries and routing",
+        points: [
+          "Delivery zones, daily capacity and date selection, with an approval step for flagged deliveries.",
+          "A driver view where stops move through in transit, arrived, delivered or unsuccessful, plus rescheduling, route planning and customer reminders.",
+        ],
+      },
+      {
+        title: "Customer communication",
+        points: [
+          "Text and chat from the order screen with automatic status messages, and one inbox for enquiries from the storefront and marketing pages, with spam handling and status tracking.",
+        ],
+      },
+      {
+        title: "Faxing, printing and alerts",
+        points: [
+          "One-click sending of order documents to the right office, warehouse or store, with a log of what was sent and what is still owed.",
+          "Instant alerts and staff notices, and an activity log of who did what and when.",
+        ],
+      },
+      {
+        title: "Administration and oversight",
+        points: ["Role-based access, a system health page for missing files and storage use, and integrations for financing partners and an external project-management sign-in."],
+      },
+    ],
+    next: {
+      title: "Coming next: Inventory",
+      points: [
+        "Live stock by warehouse, store floor and showroom, set aside when an order is confirmed and taken off when it is completed.",
+        "A to-order list of items sold but not yet bought from suppliers, with purchase orders received from scanned supplier invoices.",
+        "Supplier price lists and true landed cost per item, plus transfers between locations, counts and returns.",
+        "Low-stock alerts and stock reports.",
+      ],
+    },
+    principles: [
+      "Simple: each role gets a focused screen, so staff don't need to learn the whole system.",
+      "Accountable: every important change is recorded.",
+      "Safe: access is limited by role, and cross-store access is restricted for sales staff.",
+      "Reusable: built so other retailers could adopt it later.",
+    ],
+    stack: [],
     links: [],
     note: "Private internal tool, so there is no public demo. Screenshots use demo data, with customer details blurred.",
     seoDescription:
-      "Case study: Smith Group CRM, a multi-tenant CRM built with CodeIgniter 4, PHP and MySQL that turns scanned invoices into orders, routes deliveries and texts customers through Twilio.",
+      "Case study: Smith Group CRM, a multi-tenant back-office system where sales, warehouse, delivery and management staff run orders, deliveries, customer messaging and paperwork scanning for a multi-store mattress and furniture retailer.",
     gallery: ["smadmin"],
   },
   {

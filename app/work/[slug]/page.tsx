@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ArrowUpRight, Repo } from "@/components/Icons";
+import ScrubbedStack from "@/components/ScrubbedStack";
 import Tabs from "@/components/Tabs";
 import { getGallery, getProject, projects } from "@/data/projects";
 import { site } from "@/data/site";
@@ -101,21 +102,73 @@ export default async function CaseStudyPage({ params }: Props) {
               <h2>Problem</h2>
               <p>{project.problem}</p>
 
+              {project.users && (
+                <>
+                  <h2>Who uses it</h2>
+                  <ul>
+                    {project.users.map((u) => (
+                      <li key={u}>{u}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
               <h2>What I built</h2>
-              <ul>
-                {project.built.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
+              {project.featureGroups ? (
+                project.featureGroups.map((g) => (
+                  <div key={g.title}>
+                    <h3>{g.title}</h3>
+                    <ul>
+                      {g.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <ul>
+                  {project.built.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              )}
+
+              {project.next && (
+                <>
+                  <h2>{project.next.title}</h2>
+                  <ul>
+                    {project.next.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {project.principles && (
+                <>
+                  <h2>Design principles</h2>
+                  <ul>
+                    {project.principles.map((pr) => (
+                      <li key={pr}>{pr}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
 
               <h2>Stack</h2>
-              <div className="topics stack-tags">
-                {project.stack.map((t) => (
-                  <span key={t} className="topic">
-                    {t}
-                  </span>
-                ))}
-              </div>
+              {project.scrubbed ? (
+                <div className="stack-tags">
+                  <ScrubbedStack />
+                </div>
+              ) : (
+                <div className="topics stack-tags">
+                  {project.stack.map((t) => (
+                    <span key={t} className="topic">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <h2>Links</h2>
               {primary.length > 0 && (
@@ -172,13 +225,17 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="blk">
             <h3>About</h3>
             <p className="abt">{project.kind}</p>
-            <div className="topics">
-              {project.tags.map((t) => (
-                <span key={t} className="topic">
-                  {t.toLowerCase()}
-                </span>
-              ))}
-            </div>
+            {project.scrubbed ? (
+              <ScrubbedStack compact count={4} />
+            ) : (
+              <div className="topics">
+                {project.tags.map((t) => (
+                  <span key={t} className="topic">
+                    {t.toLowerCase()}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
           <div className="blk">
             <div className="row">

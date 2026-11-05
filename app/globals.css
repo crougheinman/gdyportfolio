@@ -211,6 +211,15 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .card.feat .card-t a { font-size: 18px; }
 .card.feat p { font-size: 14px; }
 
+/* ---------- scrubbed tech stack (client protection) ---------- */
+.scrub { position: relative; display: block; width: 100%; }
+.scrub-pills { display: flex; flex-wrap: wrap; gap: 6px; filter: blur(5px); user-select: none; pointer-events: none; }
+.scrub-veil { position: absolute; inset: -4px; display: flex; align-items: center; justify-content: center; border-radius: 10px; backdrop-filter: blur(3px); background: rgba(13, 17, 23, 0.35); }
+.scrub-label { display: inline-flex; align-items: center; gap: 6px; background: var(--bar); border: 1px solid var(--bd); color: var(--tx); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 999px; box-shadow: 0 2px 8px rgba(1, 4, 9, 0.6); text-align: center; line-height: 1.3; }
+.scrub-label svg { color: var(--lk); }
+.scrub-sm .scrub-pills .topic { height: 20px; font-size: 11px; }
+.scrub-sm .scrub-label { font-size: 11px; padding: 3px 10px; }
+
 /* ---------- skills / testimonials ---------- */
 .skill-grid .card { min-height: 0; gap: 12px; }
 .panel-label { font: 12px var(--font-mono); color: var(--mu); letter-spacing: .06em; text-transform: uppercase; }

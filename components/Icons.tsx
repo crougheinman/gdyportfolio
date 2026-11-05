@@ -25,3 +25,4 @@ export const Check = (p: P) => svg(p.size ?? 16, p, <path d="M5 12l5 5 9-10" />)
 export const Search = (p: P) => svg(p.size ?? 14, p, <><circle cx="11" cy="11" r="6" /><path d="M20 20l-4.5-4.5" /></>);
 
 export const ArrowUpRight = (p: P) => svg(p.size ?? 16, p, <path d="M7 17L17 7M8 7h9v9" />);
+export const Lock = (p: P) => svg(p.size ?? 14, p, <><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 018 0v3" /></>);
