@@ -175,6 +175,8 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .gallery figure { margin: 0; }
 .gallery .g { position: relative; aspect-ratio: 16 / 10; border: 1px solid var(--bd); border-radius: 6px; overflow: hidden; background: var(--bar); }
 .gallery img { object-fit: cover; object-position: top; }
+.gallery-sub { margin: 4px 16px 0; padding-top: 16px; border-top: 1px solid var(--bd); font: 12px var(--font-mono); color: var(--mu); letter-spacing: .06em; text-transform: uppercase; }
+.gallery.phones { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
 .gallery figcaption { font-size: 12px; color: var(--mu); margin-top: 6px; }
 .next { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; margin-top: 24px; border: 1px solid var(--bd); border-radius: 6px; color: var(--tx); }
 .next:hover { border-color: var(--mu); text-decoration: none; }
@@ -194,7 +196,11 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 /* ---------- flagship ---------- */
 .flag { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); overflow: hidden; }
 .flag-shot { position: relative; min-height: 260px; background: var(--bar); border-right: 1px solid var(--bd); }
-.flag-shot img { object-fit: cover; object-position: top; }
+.flag-shot img { object-fit: cover; object-position: left center; }
+/* hover clip: fades in over the still once it can play */
+.flag-motion { position: absolute; inset: 0; opacity: 0; transition: opacity .2s ease; background: var(--bar); }
+.flag-motion.on { opacity: 1; }
+.flag-motion video, .flag-motion img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
 .flag-body { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
 .flag-title { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 600; flex-wrap: wrap; }
 .flag-title svg { color: var(--mu); }

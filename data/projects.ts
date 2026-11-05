@@ -3,7 +3,7 @@ import gallery from "./gallery.json";
 export type FilterId = "react" | "vue" | "angular" | "php" | "webflow";
 
 export type ProjectLink = { label: string; href: string; primary?: boolean };
-export type Shot = { src: string; alt: string };
+export type Shot = { src: string; alt: string; w?: number; h?: number };
 
 export type Project = {
   slug: string;
@@ -30,6 +30,11 @@ export type Project = {
   featureGroups?: { title: string; points: string[] }[];
   next?: { title: string; points: string[] };
   principles?: string[];
+  /**
+   * Flagship card media on the homepage. `still` is always shown. If `motion` is set, hovering the card
+   * swaps to it and plays it: an .mp4/.webm video, or an animated .gif/.webp. Leave `motion` out until the file exists.
+   */
+  flagshipMedia?: { still: string; stillAlt: string; motion?: string };
   // ---- case-study content ----
   role: string;
   problem: string;
@@ -155,11 +160,16 @@ export const projects: Project[] = [
       "Reusable: built so other retailers could adopt it later.",
     ],
     stack: [],
-    links: [],
-    note: "Private internal tool, so there is no public demo. Screenshots use demo data, with customer details blurred.",
+    links: [{ label: "Live Website", href: "https://smithgroupmarketing.com/", primary: true }],
+    note: "The CRM itself is a private internal tool, so there is no public demo. Screenshots use demo data, with customer details blurred.",
+    flagshipMedia: {
+      still: "/img/flagship/desktop-01-orders.webp",
+      stillAlt: "Orders screen showing an order's status, payments and history in one view",
+      // motion: "/img/flagship/retail-ops-explainer-25s.mp4", // add the real file, then uncomment
+    },
     seoDescription:
       "Case study: Smith Group CRM, a multi-tenant back-office system where sales, warehouse, delivery and management staff run orders, deliveries, customer messaging and paperwork scanning for a multi-store mattress and furniture retailer.",
-    gallery: ["smadmin"],
+    gallery: ["smadmin", "smadmin-promo"],
   },
   {
     slug: "mattress2go-copa",

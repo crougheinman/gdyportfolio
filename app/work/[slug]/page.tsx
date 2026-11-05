@@ -50,6 +50,9 @@ export default async function CaseStudyPage({ params }: Props) {
   const gallery = getGallery(project);
   const hero = gallery[0];
   const rest = gallery.slice(1);
+  const isPortrait = (s: { w?: number; h?: number }) => !!s.w && !!s.h && s.h > s.w;
+  const landscape = rest.filter((s) => !isPortrait(s));
+  const phones = rest.filter(isPortrait);
   const primary = project.links.filter((l) => l.primary);
   const secondary = project.links.filter((l) => !l.primary);
 
@@ -200,7 +203,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <section id="screenshots" className="box section" aria-label="Screenshots">
               <div className="hd">Screenshots</div>
               <div className="gallery">
-                {rest.map((img) => (
+                {landscape.map((img) => (
                   <figure key={img.src}>
                     <div className="g">
                       <Image src={img.src} alt={img.alt} fill sizes="(max-width: 720px) 100vw, 320px" />
@@ -209,6 +212,21 @@ export default async function CaseStudyPage({ params }: Props) {
                   </figure>
                 ))}
               </div>
+              {phones.length > 0 && (
+                <>
+                  <div className="gallery-sub">Mobile app</div>
+                  <div className="gallery phones">
+                    {phones.map((img) => (
+                      <figure key={img.src}>
+                        <div className="g" style={{ aspectRatio: `${img.w} / ${img.h}` }}>
+                          <Image src={img.src} alt={img.alt} fill sizes="(max-width: 720px) 80vw, 240px" />
+                        </div>
+                        {img.alt && <figcaption>{img.alt}</figcaption>}
+                      </figure>
+                    ))}
+                  </div>
+                </>
+              )}
             </section>
           )}
 
