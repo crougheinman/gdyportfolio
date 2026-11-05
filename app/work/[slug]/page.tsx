@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject(slug);
   if (!project) return {};
   const title = `${project.title} case study — ${site.name}`;
-  const shot = getGallery(project)[0];
+  const shot = project.flagshipMedia ? { src: project.flagshipMedia.still, alt: project.flagshipMedia.stillAlt } : getGallery(project)[0];
   const image = shot ? { url: shot.src, alt: shot.alt } : { ...site.ogImage, alt: title };
   return {
     title: { absolute: title },
@@ -48,8 +48,10 @@ export default async function CaseStudyPage({ params }: Props) {
   const idx = projects.findIndex((p) => p.slug === slug);
   const next = projects[(idx + 1) % projects.length];
   const gallery = getGallery(project);
-  const hero = gallery[0];
-  const rest = gallery.slice(1);
+  // A project with flagship media uses that image as its banner (same as the home flagship card, but without
+  // the hover swap). The screenshot that would have been the banner then stays in the Screenshots section.
+  const banner = project.flagshipMedia ? { src: project.flagshipMedia.still, alt: project.flagshipMedia.stillAlt } : gallery[0];
+  const rest = project.flagshipMedia ? gallery : gallery.slice(1);
   const isPortrait = (s: { w?: number; h?: number }) => !!s.w && !!s.h && s.h > s.w;
   const landscape = rest.filter((s) => !isPortrait(s));
   const phones = rest.filter(isPortrait);
@@ -93,9 +95,9 @@ export default async function CaseStudyPage({ params }: Props) {
             <div className="md">
               <h1>{project.title}</h1>
               <p className="lead">{project.blurb}</p>
-              {hero && (
-                <div className="shot">
-                  <Image src={hero.src} alt={hero.alt} fill priority sizes="(max-width: 1344px) 100vw, 960px" />
+              {banner && (
+                <div className={`shot${project.flagshipMedia ? " shot-promo" : ""}`}>
+                  <Image src={banner.src} alt={banner.alt} fill priority sizes="(max-width: 1344px) 100vw, 960px" />
                 </div>
               )}
 

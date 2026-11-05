@@ -9,11 +9,12 @@ import ScrubbedStack from "./ScrubbedStack";
 
 const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
 
-export default function Flagship() {
+/** `motion` is the hover clip found at build time (see lib/flagshipMotion.ts); it overrides flagshipMedia.motion. */
+export default function Flagship({ motion: motionProp }: { motion?: string }) {
   const media = flagship.flagshipMedia;
   const fallback = getGallery(flagship)[0];
   const still = media ? { src: media.still, alt: media.stillAlt } : fallback;
-  const motion = media?.motion;
+  const motion = motionProp ?? media?.motion;
 
   // Hovering the card plays the motion clip; leaving swaps back to the still. The clip layer is only mounted
   // while hovered, so it is not downloaded until first use and always restarts from the beginning.
@@ -64,6 +65,8 @@ export default function Flagship() {
               <li key={b}>{b}</li>
             ))}
           </ul>
+        </div>
+        <div className="flag-tags">
           {flagship.scrubbed ? (
             <ScrubbedStack />
           ) : (
@@ -75,11 +78,11 @@ export default function Flagship() {
               ))}
             </div>
           )}
-          <div className="flag-cta">
-            <Link className="btn btn-pri" href={`/work/${flagship.slug}`}>
-              Read the case study
-            </Link>
-          </div>
+        </div>
+        <div className="flag-cta">
+          <Link className="btn btn-pri" href={`/work/${flagship.slug}`}>
+            Read the case study
+          </Link>
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ import Sidebar from "@/components/Sidebar";
 import Skills from "@/components/Skills";
 import Tabs from "@/components/Tabs";
 import Testimonials from "@/components/Testimonials";
+import { findFlagshipMotion } from "@/lib/flagshipMotion";
 import { skillGroups } from "@/data/profile";
 import { site } from "@/data/site";
 
@@ -48,7 +49,7 @@ export default function Home() {
         <main>
           <Tabs tabs={tabs} />
           <Hero />
-          <Flagship />
+          <Flagship motion={findFlagshipMotion()} />
           <Projects />
           <Services />
           <HowIUseAI />

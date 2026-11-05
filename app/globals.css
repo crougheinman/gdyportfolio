@@ -171,6 +171,7 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .row b { color: var(--tx); font-weight: 600; }
 .shot { position: relative; border: 1px solid var(--bd); border-radius: 6px; overflow: hidden; margin: 6px 0 18px; aspect-ratio: 16 / 8; background: var(--bar); }
 .shot img { object-fit: cover; object-position: top; }
+.shot.shot-promo { aspect-ratio: 16 / 10; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; padding: 16px; }
 .gallery figure { margin: 0; }
 .gallery .g { position: relative; aspect-ratio: 16 / 10; border: 1px solid var(--bd); border-radius: 6px; overflow: hidden; background: var(--bar); }
@@ -194,20 +195,21 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .md .em, .em { color: var(--tx); font-weight: 700; }
 
 /* ---------- flagship ---------- */
-.flag { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); overflow: hidden; }
-.flag-shot { position: relative; min-height: 260px; background: var(--bar); border-right: 1px solid var(--bd); }
-.flag-shot img { object-fit: cover; object-position: left center; }
+.flag { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 10fr); grid-template-rows: auto auto 1fr; grid-template-areas: "media body" "tags body" "cta body"; overflow: hidden; }
+.flag-shot { grid-area: media; position: relative; aspect-ratio: 16 / 10; background: var(--bar); border-right: 1px solid var(--bd); border-bottom: 1px solid var(--bd); }
+.flag-shot img { object-fit: cover; object-position: center; }
 /* hover clip: fades in over the still once it can play */
 .flag-motion { position: absolute; inset: 0; opacity: 0; transition: opacity .2s ease; background: var(--bar); }
 .flag-motion.on { opacity: 1; }
-.flag-motion video, .flag-motion img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
-.flag-body { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.flag-motion video, .flag-motion img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.flag-body { grid-area: body; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.flag-tags { grid-area: tags; padding: 16px 20px 0; }
 .flag-title { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 600; flex-wrap: wrap; }
 .flag-title svg { color: var(--mu); }
 .flag-lead { font-size: 15px; color: var(--tx); }
 .flag-list { margin: 0; padding-left: 20px; color: var(--mu); font-size: 14px; display: flex; flex-direction: column; gap: 6px; }
 .flag-list li::marker { color: var(--lk); }
-.flag-cta { margin-top: 4px; }
+.flag-cta { grid-area: cta; padding: 14px 20px 20px; align-self: start; }
 
 /* featured card inside the project grid */
 .card.feat { grid-column: 1 / -1; flex-direction: row; padding: 0; overflow: hidden; gap: 0; }
@@ -255,8 +257,10 @@ textarea.field { resize: vertical; padding: 8px 12px; }
 .md h2:first-of-type { margin-top: 28px; }
 
 @media (max-width: 900px) {
-  .flag { grid-template-columns: 1fr; }
-  .flag-shot { min-height: 200px; border-right: 0; border-bottom: 1px solid var(--bd); }
+  .flag { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "media" "body" "tags" "cta"; }
+  .flag-shot { border-right: 0; }
+  .flag-tags { padding: 0 16px; }
+  .flag-cta { padding: 12px 16px 16px; }
 }
 @media (max-width: 720px) {
   .md.hero h1 { font-size: 26px; }

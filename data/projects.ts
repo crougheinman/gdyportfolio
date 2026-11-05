@@ -31,8 +31,8 @@ export type Project = {
   next?: { title: string; points: string[] };
   principles?: string[];
   /**
-   * Flagship card media on the homepage. `still` is always shown. If `motion` is set, hovering the card
-   * swaps to it and plays it: an .mp4/.webm video, or an animated .gif/.webp. Leave `motion` out until the file exists.
+   * Flagship card media on the homepage. `still` is always shown. If `motion` is set (or the explainer file
+   * is found in public/img/flagship), hovering the card swaps to it and plays it: an .mp4/.webm video, or an animated .gif/.webp.
    */
   flagshipMedia?: { still: string; stillAlt: string; motion?: string };
   // ---- case-study content ----
@@ -165,7 +165,8 @@ export const projects: Project[] = [
     flagshipMedia: {
       still: "/img/flagship/desktop-01-orders.webp",
       stillAlt: "Orders screen showing an order's status, payments and history in one view",
-      // motion: "/img/flagship/retail-ops-explainer-25s.mp4", // add the real file, then uncomment
+      // The hover clip is picked up automatically: put retail-ops-explainer-25s.mp4 (or .webm/.gif/.webp)
+      // in public/img/flagship/ (see lib/flagshipMotion.ts). Setting `motion` here is only needed for another path.
     },
     seoDescription:
       "Case study: Smith Group CRM, a multi-tenant back-office system where sales, warehouse, delivery and management staff run orders, deliveries, customer messaging and paperwork scanning for a multi-store mattress and furniture retailer.",

@@ -31,7 +31,7 @@ export default function Projects() {
             <div key={p.slug} className={`card${p.featured ? " feat" : ""}`}>
               {p.featured && (
                 <div className="feat-shot">
-                  <Image src={thumbSrc(p)} alt={`${p.title} screenshot`} fill sizes="(max-width: 720px) 100vw, 280px" />
+                  <Image src={p.flagshipMedia?.still ?? thumbSrc(p)} alt={p.flagshipMedia?.stillAlt ?? `${p.title} screenshot`} fill sizes="(max-width: 720px) 100vw, 280px" />
                 </div>
               )}
               <div className="card-main">
