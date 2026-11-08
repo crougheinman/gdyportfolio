@@ -7,8 +7,8 @@ const legacy = {
   "rd-webflow-portfolio.html": "rd",
   "gs-webflow-portfolio.html": "gs",
   "cb-portfolio-details.html": "cb",
-  "cb-admin-portfolio-details.html": "earlier-work",
-  "cb-loansys-portfolio-details.html": "earlier-work",
+  "cb-admin-portfolio-details.html": "cb",
+  "cb-loansys-portfolio-details.html": "loansys",
   "peb-portfolio-details.html": "peb",
   "entity-portfolio-details.html": "entity",
 };
@@ -17,8 +17,8 @@ const legacy = {
 const renamed = {
   m2g: "/work/mattress2go-copa",
   copa: "/work/mattress2go-copa",
-  cbadmin: "/work/earlier-work",
-  loansys: "/work/earlier-work",
+  cbadmin: "/work/cb", // CarBnb Admin is now part of the CarBnb project
+  "earlier-work": "/work/cb", // the short-lived combined page; YL Loan System is /work/loansys again
   // Watchy was removed from the portfolio.
   watchy: "/#projects",
 };
